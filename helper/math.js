@@ -45,10 +45,6 @@ function get_slope(
     )
   }
 
-  // return Math.round(
-  //   (y2-y1) / value
-  // )
-
   return ((y2-y1) / value)
 }
 
@@ -58,7 +54,7 @@ function get_const_value(
  ) {
   const slope = get_slope(point1, point2);
 
-  const {x1=0, y1=0} = point1 || {};
+  // const {x1=0, y1=0} = point1 || {};
   const {x2=0, y2=0} = point2 || {};
 
   const a = slope;
