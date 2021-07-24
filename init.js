@@ -14,12 +14,31 @@ const radius = 5;
 // const size = 40;
 const size = canvasHeight;
 
+draw_char( draw_z(size), size, 0, 0 );
+// draw_char( draw_y(size), size, 0, 0 );
+// draw_char( draw_x(size), size, 0, 0 );
+// draw_char( draw_w(size), size, 0, 0 );
+// draw_char( draw_v(size), size, 0, 0 );
+// draw_char( draw_u(size), size, 0, 0 );
+// draw_char( draw_t(size), size, 0, 0 );
+// draw_char( draw_s(size), size, 0, 0 );
+// draw_char( draw_r(size), size, 0, 0 );
+// draw_char( draw_p(size), size, 0, 0 );
 // draw_char( draw_u(size), size, 0, 0 );
 // draw_char( draw_o(size), size, 0, 0 );
+// draw_char( draw_n(size), size, 0, 0 );
+// draw_char( draw_m(size), size, 0, 0 );
+// draw_char( draw_l(size), size, 0, 0 );
+// draw_char( draw_k(size), size, 0, 0 );
+// draw_char( draw_j(size), size, 0, 0 );
+// draw_char( draw_i(size), size, 0, 0 );
+// draw_char( draw_h(size), size, 0, 0 );
 // draw_char( draw_g(size), size, 0, 0 );
+// draw_char( draw_f(size), size, 0, 0 );
+// draw_char( draw_e(size), size, 0, 0 );
 // draw_char( draw_d(size), size, 0, 0 );
 // draw_char( draw_c(size), size, 0, 0 );
-draw_char( draw_b(size), size, 0, 0 );
+// draw_char( draw_b(size), size, 0, 0 );
 // draw_char( draw_a(size), size, size-6, 0 );
 
 
