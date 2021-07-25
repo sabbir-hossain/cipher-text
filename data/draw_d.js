@@ -1,8 +1,10 @@
-function draw_d(size = 16) {
+function D(size = 16) {
   const pointList = {};
 
+  const config = Config();
+
   const max_y = size;
-  const max_x = max_y * 6/ 10;
+  const max_x = max_y *  config['D'].ratio / 10;
 
   const totalLineY = 8;
   const y_unit = Math.round( max_y / totalLineY );
@@ -55,18 +57,6 @@ function draw_d(size = 16) {
     x2: x_unit * totalLineX, y2: ((totalLineY-1) * y_unit),
     x3: x_unit * (totalLineX-1), y3: (totalLineY * y_unit)
   };
-
-  // pointList["ten"] = { 
-  //   x1: x_unit * (totalLineX-1), y1: ((totalLineY-1) * y_unit),
-  //   x2: x_unit * (totalLineX-1), y2: y_unit * 6,
-  //   x3: x_unit * totalLineX, y3: y_unit * 6
-  // };
-
-  // pointList["eleven"] = { 
-  //   x1: x_unit * (totalLineX-1), y1: ((totalLineY-1) * y_unit),
-  //   x2: x_unit * totalLineX, y2: ((totalLineY-1) * y_unit),
-  //   x3: x_unit * totalLineX, y3: y_unit * 6
-  // };
 
   pointList["eight"] = { 
     x1: (x_unit * 2) + constX, y1: ((totalLineY-1) * y_unit),

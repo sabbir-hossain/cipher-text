@@ -1,8 +1,10 @@
-function draw_u(size = 16) {
+function U(size = 16) {
   const pointList = {};
 
+  const config = Config();
+
   const max_y = size;
-  const max_x = max_y * 5 / 10;
+  const max_x = max_y *  config['U'].ratio / 10;
 
   const totalLineY = 6;
   const y_unit = Math.round( max_y / totalLineY );

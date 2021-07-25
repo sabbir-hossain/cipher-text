@@ -1,8 +1,10 @@
-function draw_a(size = 16) {
+function A(size = 16) {
   const pointList = {};
-  
+
+  const config = Config();
+
   const max_y = size;
-  const max_x = max_y * 7 / 10;
+  const max_x = max_y * config['A'].ratio / 10;
 
   const mid_x = max_x / 2;
   const mid_y = max_y / 2;

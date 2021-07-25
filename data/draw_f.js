@@ -1,7 +1,10 @@
-function draw_f(size = 16) {
+function F(size = 16) {
   const pointList = {};
+
+  const config = Config();
+
   const max_y = size;
-  const max_x = max_y * 6 / 10;
+  const max_x = max_y *  config['F'].ratio / 10;
 
   const totalLineY = 8;
   const y_unit = Math.round( max_y / totalLineY );
