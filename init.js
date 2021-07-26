@@ -77,7 +77,7 @@ function displayData( charList) {
       const height = fontSize;
       const width = fontSize;
 
-      draw_char(pointList, backgroundColor, backgroundColor, positionX, positionY, height, width);
+      // draw_char(pointList, backgroundColor, backgroundColor, positionX, positionY, height, width);
     } else if( allowedChatList.includes(charVal) ) {
       // console.log({charVal})
       const pointList = window[charVal](fontSize);
@@ -93,11 +93,15 @@ function displayData( charList) {
   }
 }
 
+// displayData("hello");
 // displayData(text);
 
 function generateBackgroud(charList) {
   let positionX = 0;
   let positionY = 200;
+
+  let fontColor2 = "red"
+  let backgroundColor2 = "blue"
   
   const upperCharList = charList.toUpperCase();
   const len = upperCharList.length;
@@ -114,7 +118,7 @@ function generateBackgroud(charList) {
       const height = backgroundFontSize;
       const width = size;
       // draw_char(pointList, color, bgColor, startX, startY,  height, width)
-      draw_char(pointList, fontColor, backgroundColor, positionX, positionY, height, width);
+      draw_char(pointList, fontColor2, backgroundColor2, positionX, positionY, height, width);
     }
 
     // console.log({positionX, positionY})
@@ -122,6 +126,8 @@ function generateBackgroud(charList) {
 }
 
 generateBackgroud("hello");
+
+displayData(text);
 
 function draw_char(pointList, color, bgColor, startX, startY,  height, width) {
   const graphics = new Graphics(ctx, color, bgColor, startX, startY,  height, width);
