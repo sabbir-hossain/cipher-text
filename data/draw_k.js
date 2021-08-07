@@ -1,4 +1,4 @@
-function K(size = 16) {
+export default function K(size = 16) {
   const pointList = {};
 
   const config = Config();

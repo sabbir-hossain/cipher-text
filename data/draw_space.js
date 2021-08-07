@@ -1,4 +1,4 @@
-function SPACE(size = 16) {
+export default function SPACE(size = 16) {
   const pointList = {};
 
   const max_y = size;

@@ -1,4 +1,4 @@
-function Z(size = 16) {
+export default function Z(size = 16) {
   const pointList = {};
 
   const config = Config();

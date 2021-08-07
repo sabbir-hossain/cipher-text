@@ -1,5 +1,4 @@
-
-function throwError(name) {
+export function throwError(name) {
   throw new Error(`${name} is missing or invalid`)
 }
 
@@ -33,3 +32,5 @@ function Config() {
     Z: {  ratio: 6 }
   }
 }
+
+export const config = Config();

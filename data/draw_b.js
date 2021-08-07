@@ -1,4 +1,4 @@
-function B(size = 16) {
+export default function B(size = 16) {
   const pointList = {};
   const config = Config();
 
