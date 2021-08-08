@@ -11,9 +11,6 @@ export default function I(size = 16) {
 
   const totalLineX = 3;
   const x_unit = Math.round( max_x / totalLineX );
-
-  console.log({max_x, max_y, totalLineX, totalLineY, x_unit, y_unit})
-
   // const constX = ( x_unit * 0.50 );
   // const constY = ( y_unit * 0.50 );
   // const graphics = new Graphics(ctx, size, 0, 0);

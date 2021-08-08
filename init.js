@@ -1,6 +1,4 @@
-import {config} from "./helper/share.js"
-import data from "./data/index.js";
-import Graphics from "./lib/graphics.js";
+import { generateBackground, displayData } from "./src/draw-char.js";
 
 const canvas = document.getElementById("myCanvas");
 const ctx = canvas.getContext("2d");
@@ -8,66 +6,12 @@ const ctx = canvas.getContext("2d");
 const canvasWidth = ctx.canvas.width;
 const canvasHeight = ctx.canvas.height;
 
-const allowedChatList = [ 
-  "A", "B", "C", "D", "E", "F", "G", "H",
-  "I", "J", "K", "L", "M", "N", "O", "P",
-  "Q", "R", "S", "T", "U", "V", "W", "X",
-  "Y", "Z"
-]
-let fontColor = "#000";
-let backgroundColor = "#fff";
 let backgroundFontSize = 178;
 
-const size = canvasHeight;
-// const newSize = size;
-// const newSize = (size * config['A'].ratio / 10) + 4;
+generateBackground(ctx, "Hello", backgroundFontSize);
 
-const colors = ["#042001", "#e09200", "#11670b", "#008080",  "#000024"];
+const text = "One Day, God KRISHNA was returning to his kingdom. All of the villagers enlighten their homes and roads so that their GOD's Ratha Yatra would looked wonderful But some villagers made their homes and roads completely into darkness. Then LORD KRISHNA asked them why did they do that? They said that dear GOD your Ratha Yatra is already in enlighten, so we found out that if we would be into darkness, your Ratha Yatra will looked much more wonderful.I wish I would be like those villagers.";
 
-function generateBackground(charList) {
-  let positionX = 50;
-  let positionY = 200;
 
-  const fontColor = "red"
-  // let backgroundColor2 = "blue"
-  
-  const upperCharList = charList.toUpperCase();
-  const len = upperCharList.length;
-  const maxChar = Math.floor( canvasWidth / backgroundFontSize );
+displayData(ctx, text, canvasWidth);
 
-  for (let i=0; i<len; i++ ) {
-    const charVal = upperCharList[i];
-
-    if( allowedChatList.includes(charVal) ) {
-      // console.log({charVal})
-      const pointList = data[charVal](backgroundFontSize);
-      const size = (backgroundFontSize * config[charVal].ratio / 10) + 4;
-      
-      const height = backgroundFontSize;
-      const width = size;
-      console.log({charVal, positionX, positionY, height, width, ratio: config[charVal].ratio})
-      const graphics = new Graphics(ctx, fontColor, positionX, positionY);
-      draw_char(graphics, pointList);
-
-      graphics.rect(positionX, 15, width, height+10, colors[i]);
-
-      positionX += size;
-    }
-
-    // console.log({positionX, positionY})
-  }
-}
-
-generateBackground("xyz");
-
-// function draw_char(pointList, color, bgColor, startX, startY,  height, width) {
-  // const graphics = new Graphics(ctx, color, bgColor, startX, startY,  height, width);
-function draw_char(graphics, pointList) {
-  
-  for(let key in pointList) {
-    const { x1, y1, x2, y2, x3, y3 } = pointList[key];
-    graphics.triangle( x1, y1, x2, y2, x3, y3);
-  }
-
-  // graphics.rect(startX, startY,  height, width)
-}
