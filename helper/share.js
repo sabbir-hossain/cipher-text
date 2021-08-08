@@ -12,7 +12,7 @@ function Config() {
     F: {  ratio: 6 },
     G: {  ratio: 5 },
     H: {  ratio: 6 },
-    I: {  ratio: 5 },
+    I: {  ratio: 3 },
     J: {  ratio: 7 },
     K: {  ratio: 6 },
     L: {  ratio: 6 },

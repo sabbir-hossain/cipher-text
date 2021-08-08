@@ -22,12 +22,14 @@ const size = canvasHeight;
 // const newSize = size;
 // const newSize = (size * config['A'].ratio / 10) + 4;
 
-function generateBackgroud(charList) {
-  let positionX = 0;
+const colors = ["#042001", "#e09200", "#11670b", "#008080",  "#000024"];
+
+function generateBackground(charList) {
+  let positionX = 50;
   let positionY = 200;
 
-  let fontColor2 = "red"
-  let backgroundColor2 = "blue"
+  const fontColor = "red"
+  // let backgroundColor2 = "blue"
   
   const upperCharList = charList.toUpperCase();
   const len = upperCharList.length;
@@ -40,23 +42,32 @@ function generateBackgroud(charList) {
       // console.log({charVal})
       const pointList = data[charVal](backgroundFontSize);
       const size = (backgroundFontSize * config[charVal].ratio / 10) + 4;
-      positionX += size;
+      
       const height = backgroundFontSize;
       const width = size;
-      // draw_char(pointList, color, bgColor, startX, startY,  height, width)
-      draw_char(pointList, fontColor2, backgroundColor2, positionX, positionY, height, width);
+      console.log({charVal, positionX, positionY, height, width, ratio: config[charVal].ratio})
+      const graphics = new Graphics(ctx, fontColor, positionX, positionY);
+      draw_char(graphics, pointList);
+
+      graphics.rect(positionX, 15, width, height+10, colors[i]);
+
+      positionX += size;
     }
 
     // console.log({positionX, positionY})
   }
 }
 
-generateBackgroud("hello");
+generateBackground("xyz");
 
-function draw_char(pointList, color, bgColor, startX, startY,  height, width) {
-  const graphics = new Graphics(ctx, color, bgColor, startX, startY,  height, width);
+// function draw_char(pointList, color, bgColor, startX, startY,  height, width) {
+  // const graphics = new Graphics(ctx, color, bgColor, startX, startY,  height, width);
+function draw_char(graphics, pointList) {
+  
   for(let key in pointList) {
     const { x1, y1, x2, y2, x3, y3 } = pointList[key];
-    graphics.triangle( x1, y1, x2, y2, x3, y3, color);
+    graphics.triangle( x1, y1, x2, y2, x3, y3);
   }
+
+  // graphics.rect(startX, startY,  height, width)
 }
