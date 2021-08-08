@@ -1,7 +1,7 @@
-function J(size = 16) {
-  const pointList = {};
+import { config } from "../helper/share.js";
 
-  const config = Config();
+export default function J(size = 16) {
+  const pointList = {};
 
   // const graphics = new Graphics(ctx, size, 0, 0);
   const max_y = size;

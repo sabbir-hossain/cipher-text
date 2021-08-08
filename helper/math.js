@@ -1,4 +1,4 @@
-function intersection_two_line(
+export function intersection_two_line(
   line1 = throwError('intersection_two_line/line1'), 
   line2 = throwError('intersection_two_line/line2') ) {
 
@@ -25,7 +25,7 @@ function intersection_two_line(
   return { a, b };
 }
 
-function get_slope(
+export function get_slope(
   point1 = throwError('get_slope/point1'), 
   point2 = throwError('get_slope/point2') 
 ) {
@@ -48,7 +48,7 @@ function get_slope(
   return ((y2-y1) / value)
 }
 
-function get_const_value(
+export function get_const_value(
   point1 = throwError('get_const_value/point1'), 
   point2 = throwError('get_const_value/point2')
  ) {

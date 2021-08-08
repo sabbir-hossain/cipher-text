@@ -1,7 +1,13 @@
-
-function throwError(name) {
+export function throwError(name) {
   throw new Error(`${name} is missing or invalid`)
 }
+
+export const allowedChatList = [ 
+  "A", "B", "C", "D", "E", "F", "G", "H",
+  "I", "J", "K", "L", "M", "N", "O", "P",
+  "Q", "R", "S", "T", "U", "V", "W", "X",
+  "Y", "Z"
+]
 
 function Config() {
   return {
@@ -13,7 +19,7 @@ function Config() {
     F: {  ratio: 6 },
     G: {  ratio: 5 },
     H: {  ratio: 6 },
-    I: {  ratio: 5 },
+    I: {  ratio: 3 },
     J: {  ratio: 7 },
     K: {  ratio: 6 },
     L: {  ratio: 6 },
@@ -33,3 +39,5 @@ function Config() {
     Z: {  ratio: 6 }
   }
 }
+
+export const config = Config();

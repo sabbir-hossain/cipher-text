@@ -1,7 +1,7 @@
-function W(size = 16) {
-  const pointList = {};
+import { config } from "../helper/share.js";
 
-  const config = Config();
+export default function W(size = 16) {
+  const pointList = {};
 
   const max_y = size;
   const max_x = max_y *  config['W'].ratio / 10;
@@ -14,13 +14,7 @@ function W(size = 16) {
 
   const constX = ( x_unit * 0.50 );
   const constY = ( y_unit * 0.50 );
-  const graphics = new Graphics(ctx, size, 0, 0);
-
-  graphics.line((x_unit * (totalLineX/2)), (y_unit * (totalLineY/2)), (x_unit * (totalLineX/2)), (y_unit * (totalLineY/2 + 1)))
-
-  graphics.line((x_unit * (totalLineX/4)), 0, (x_unit * (totalLineX/4)), y_unit)
-
-  graphics.line(max_x - (x_unit * (totalLineX/4)), 0, max_x - (x_unit * (totalLineX/4)), y_unit)
+  // const graphics = new Graphics(ctx, size, 0, 0);
 
 
   pointList["one"] = { 

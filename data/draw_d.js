@@ -1,7 +1,7 @@
-function D(size = 16) {
-  const pointList = {};
+import { config } from "../helper/share.js";
 
-  const config = Config();
+export default function D(size = 16) {
+  const pointList = {};
 
   const max_y = size;
   const max_x = max_y *  config['D'].ratio / 10;
