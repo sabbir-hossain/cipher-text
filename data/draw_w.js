@@ -14,8 +14,6 @@ export default function W(size = 16) {
 
   const constX = ( x_unit * 0.50 );
   const constY = ( y_unit * 0.50 );
-  // const graphics = new Graphics(ctx, size, 0, 0);
-
 
   pointList["one"] = { 
     x1: 0, y1: y_unit * (totalLineY),

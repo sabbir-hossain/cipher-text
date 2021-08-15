@@ -15,7 +15,7 @@ export function generateBackground(ctx, charList, fontSize, fontColor="red", pos
       const pointList = data[charVal](fontSize);
       const size = (fontSize * config[charVal].ratio / 10) + 10;
 
-      const graphics = new Graphics(ctx, fontColor, positionX, positionY);
+      const graphics = new Graphics(ctx, positionX, positionY, fontColor);
       draw_char(graphics, pointList);
 
       // graphics.rect(positionX, 15, width, height+10, colors[i]);
@@ -34,13 +34,13 @@ export function displayData(ctx, charList, maxWidth, fontSize=19, fontColor="bla
     const charVal = upperCharList[i];
 
     if(charVal === " ") {
-      // const graphics = new Graphics(ctx, "#fff", positionX, positionY);
+      // const graphics = new Graphics(ctx, positionX, positionY, "#fff");
       // const pointList = data['SPACE'](fontSize);
       // draw_char(graphics, pointList);
 
       positionX += fontSize;
     } else if( allowedChatList.includes(charVal) ) {
-      const graphics = new Graphics(ctx, fontColor, positionX, positionY);
+      const graphics = new Graphics(ctx, positionX, positionY, fontColor);
       const pointList = data[charVal](fontSize);
       draw_char(graphics, pointList);
 

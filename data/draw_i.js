@@ -13,7 +13,6 @@ export default function I(size = 16) {
   const x_unit = Math.round( max_x / totalLineX );
   // const constX = ( x_unit * 0.50 );
   // const constY = ( y_unit * 0.50 );
-  // const graphics = new Graphics(ctx, size, 0, 0);
 
   pointList["one"] = { 
     x1: 0, y1: 0,

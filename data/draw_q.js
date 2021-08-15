@@ -15,17 +15,6 @@ export default function Q(size = 16) {
   // const constX = ( x_unit * 0.50 );
   // const constY = ( y_unit * 0.50 );
 
-  // const graphics = new Graphics(ctx, size, 0, 0);
-  // for(let i=0; i<=totalLineY; i++) {
-  //   const yy1 = (i+1) * y_unit;
-  //   graphics.line(0, yy1, x_unit * totalLineY, yy1);
-  // }
-
-  // for(let i=0; i<=totalLineX+1; i++) {
-  //   const xx1 = (i+1) * x_unit;
-  //   graphics.line(xx1, 0, xx1, max_y);
-  // }
-
   pointList["one"] = { 
     x1: 0, y1: y_unit * 3,
     x2: x_unit, y2: 0,

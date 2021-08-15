@@ -14,9 +14,6 @@ export default function N(size = 16) {
 
   const constX = ( x_unit * 0.50 );
   const constY = ( y_unit * 0.50 );
-  // const graphics = new Graphics(ctx, size, 0, 0);
-
-  // graphics.line((x_unit * (totalLineX/2)), y_unit * (totalLineY/2), (x_unit * (totalLineX/2)), y_unit * (totalLineY/2 + 1))
 
   pointList["one"] = { 
     x1: 0, y1: 0,
