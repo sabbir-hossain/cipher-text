@@ -16,9 +16,7 @@ const text = "One Day, God KRISHNA was returning to his kingdom. All of the vill
 
 displayData(ctx, text, canvasWidth);
 
-// canvas.addEventListener('pointerup', (evt) => {
-//   console.log("evt", evt);
-// }, false);
+
 
 //Variables
 var canvasx = canvas.offsetLeft;
@@ -26,25 +24,18 @@ var canvasy = canvas.offsetTop;
 var last_mousex = 0, last_mousey = 0;
 var mousex = 0, mousey = 0;
 var mousedown = false;
-var prev_mousex = 0, prev_mousey = 0;
-
 
 
 //Mousedown
 canvas.addEventListener('mousedown', function(e) {
-  // prev_mousex = last_mousex;
-  // prev_mousey = last_mousey;
-
   last_mousex = parseInt(e.clientX-canvasx);
   last_mousey = parseInt(e.clientY-canvasy);
-  // clearDt()
   mousedown = true;
 });
 
 //Mouseup
 canvas.addEventListener('mouseup', function(e) {
   mousedown = false;
-  // canvas.removeEventListener('mousemove', drawLine)
 });
 
 //Mousemove
@@ -56,23 +47,17 @@ function drawLine(e) {
 
   if(mousedown) {
     ctx.globalCompositeOperation = "destination-over";
-      // ctx.clearRect(last_mousex,last_mousey,prev_mousex,prev_mousey); //clear canvas
-      ctx.save();
-      ctx.beginPath();
-      ctx.moveTo(last_mousex,last_mousey);
-      ctx.lineTo(mousex,mousey);
-      // console.log({last_mousex,last_mousey, mousex,mousey})
-      ctx.strokeStyle = '#4d4d4d';
-      // ctx.globalAlpha = 0.1;
-      // ctx.strokeStyle = 'rgba(0, 0, 0, 0.1)';
-      ctx.lineWidth = 25;
-      ctx.lineJoin = ctx.lineCap = 'round';
+    ctx.save();
+    ctx.beginPath();
+    ctx.moveTo(last_mousex,last_mousey);
+    ctx.lineTo(mousex,mousey);
 
-      // ctx.globalAlpha = 0.2;
-      // ctx.fillStyle = "blue";
-      // ctx.fillRect(last_mousex, last_mousey, mousex,mousey);
-      // ctx.closePath();
-      ctx.stroke();
-      ctx.restore();
+    ctx.strokeStyle = '#4d4d4d';
+    ctx.lineWidth = 25;
+    ctx.lineJoin = ctx.lineCap = 'round';
+
+    ctx.closePath();
+    ctx.stroke();
+    ctx.restore();
   }
 }
