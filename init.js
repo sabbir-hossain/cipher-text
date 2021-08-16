@@ -28,6 +28,8 @@ var mousex = 0, mousey = 0;
 var mousedown = false;
 var prev_mousex = 0, prev_mousey = 0;
 
+
+
 //Mousedown
 canvas.addEventListener('mousedown', function(e) {
   // prev_mousex = last_mousex;
@@ -53,6 +55,7 @@ function drawLine(e) {
   mousey = parseInt(e.clientY-canvasy);
 
   if(mousedown) {
+    ctx.globalCompositeOperation = "destination-over";
       // ctx.clearRect(last_mousex,last_mousey,prev_mousex,prev_mousey); //clear canvas
       ctx.save();
       ctx.beginPath();
@@ -60,7 +63,7 @@ function drawLine(e) {
       ctx.lineTo(mousex,mousey);
       // console.log({last_mousex,last_mousey, mousex,mousey})
       ctx.strokeStyle = '#4d4d4d';
-      ctx.globalAlpha = 0.1;
+      // ctx.globalAlpha = 0.1;
       // ctx.strokeStyle = 'rgba(0, 0, 0, 0.1)';
       ctx.lineWidth = 25;
       ctx.lineJoin = ctx.lineCap = 'round';
@@ -72,9 +75,4 @@ function drawLine(e) {
       ctx.stroke();
       ctx.restore();
   }
-
-}
-
-function clearDt() {
-  ctx.clearRect(last_mousex,last_mousey,prev_mousex,prev_mousey);
 }
