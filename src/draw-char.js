@@ -2,25 +2,56 @@ import Graphics from "../lib/graphics.js";
 import {config, allowedChatList} from "../helper/share.js"
 import data from "../data/index.js";
 
-export function generateBackground(ctx, charList, fontSize, fontColor="red", positionX=50, positionY=200) {
- 
+export function generateBackground(ctx, charList, maxWidth, fontSize, fontColor="red", positionX=25, positionY=25) {
+  const graphics = new Graphics(ctx);
   const upperCharList = charList.toUpperCase();
   const len = upperCharList.length;
   // const maxChar = Math.floor( canvasWidth / fontSize );
 
-  for (let i=0; i<len; i++ ) {
-    const charVal = upperCharList[i];
+  positionX = positionX;
+  positionY = positionY;
 
-    if( allowedChatList.includes(charVal) ) {
-      const pointList = data[charVal](fontSize);
-      const size = (fontSize * config[charVal].ratio / 10) + 10;
+  let max_x = positionX;
+  let init_x = max_x;
 
-      const graphics = new Graphics(ctx, fontColor, positionX, positionY);
-      draw_char(graphics, pointList);
+  let init_y = fontSize;
+  
+  for (const charVal of upperCharList ) {
+    // const charVal = upperCharList[i];
+    const dtx = config[charVal]?.["co-ordinates"];
+    const len_x = dtx.length;
+    const len_y = dtx?.[0].length;
 
-      // graphics.rect(positionX, 15, width, height+10, colors[i]);
+    positionX = max_x;
+    positionY = init_y;
+    init_x = max_x;
 
-      positionX += size;
+    if( (positionX + (len_y * fontSize)) > maxWidth ) {
+      positionX = fontSize;
+      max_x = positionX;
+      init_x = max_x;
+      
+      positionY += ((len_x + 1) * fontSize);
+      init_y = positionY;
+    }
+
+    for(let a = 0; a < len_x; a++) {
+
+      for(let b = 0; b < len_y; b++) {
+        if( dtx[a][b] === 0 ) {
+          fontColor = "#fff";
+        } else {
+          fontColor = "red";
+        }
+
+        graphics.rect(positionX, positionY, fontSize, fontSize, fontColor);
+
+        positionX += (fontSize + 1);
+        max_x = positionX + fontSize;
+      }
+
+      positionY += (fontSize + 1);
+      positionX =  init_x;
     }
   }
 }
