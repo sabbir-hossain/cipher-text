@@ -25,7 +25,7 @@ export function generateBackground(ctx, charList, fontSize, fontColor="red", pos
   }
 }
 
-export function displayData(ctx, charList, maxWidth, fontSize=19, fontColor="black", positionX=0, positionY=25) {
+export function displayData(ctx, charList, maxWidth, fontSize=25, fontColor="black", positionX=0, positionY=25) {
 
   const upperCharList = charList.toUpperCase();
   const len = upperCharList.length;
@@ -33,18 +33,19 @@ export function displayData(ctx, charList, maxWidth, fontSize=19, fontColor="bla
   for (let i=0; i<len; i++ ) {
     const charVal = upperCharList[i];
 
-    if(charVal === " ") {
-      // const graphics = new Graphics(ctx, "#fff", positionX, positionY);
-      // const pointList = data['SPACE'](fontSize);
-      // draw_char(graphics, pointList);
+    // if(charVal === " ") {
+    //   // const graphics = new Graphics(ctx, "#fff", positionX, positionY);
+    //   // const pointList = data['SPACE'](fontSize);
+    //   // draw_char(graphics, pointList);
 
-      positionX += fontSize;
-    } else if( allowedChatList.includes(charVal) ) {
+    //   positionX += fontSize;
+    // } else 
+    if( allowedChatList.includes(charVal) ) {
       const graphics = new Graphics(ctx, fontColor, positionX, positionY);
       const pointList = data[charVal](fontSize);
       draw_char(graphics, pointList);
 
-      const size = (fontSize * config[charVal].ratio / 10) + 2;
+      const size = (fontSize * config[charVal].ratio / 10) + 10;
       positionX += size;
     }
 
