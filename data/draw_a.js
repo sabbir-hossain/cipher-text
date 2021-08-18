@@ -77,3 +77,13 @@ export default function A(size = 16) {
 
   return pointList;
 }
+
+export function bg_A( block_number_x=10, unit_height=19) {
+  const pointList = {};
+
+  const block_number_y = block_number_x * config['A'].ratio / 10;
+
+  const unit_width = unit_height * config['A'].ratio / 10;
+
+  
+}

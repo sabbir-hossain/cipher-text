@@ -2,30 +2,75 @@ import Graphics from "../lib/graphics.js";
 import {config, allowedChatList} from "../helper/share.js"
 import data from "../data/index.js";
 
-export function generateBackground(ctx, charList, fontSize, fontColor="red", positionX=50, positionY=200) {
- 
+Array.prototype.random = function() {
+  return this[Math.round( Math.random() * ( this.length - 1) )]
+}
+
+export function generateBackground(ctx, charList, maxWidth, fontSize, fontColor="red", positionX=25, positionY=25) {
+  const graphics = new Graphics(ctx);
   const upperCharList = charList.toUpperCase();
   const len = upperCharList.length;
   // const maxChar = Math.floor( canvasWidth / fontSize );
 
-  for (let i=0; i<len; i++ ) {
-    const charVal = upperCharList[i];
+  positionX = positionX;
+  positionY = positionY;
 
-    if( allowedChatList.includes(charVal) ) {
-      const pointList = data[charVal](fontSize);
-      const size = (fontSize * config[charVal].ratio / 10) + 10;
+  let max_x = positionX;
+  let init_x = max_x;
 
-      const graphics = new Graphics(ctx, fontColor, positionX, positionY);
-      draw_char(graphics, pointList);
+  let init_y = fontSize;
+  
+  for (const charVal of upperCharList ) {
+    // const charVal = upperCharList[i];
+    const dtx = config[charVal]?.["co-ordinates"];
+    const len_x = dtx.length;
+    const len_y = dtx?.[0].length;
 
-      // graphics.rect(positionX, 15, width, height+10, colors[i]);
+    positionX = max_x;
+    positionY = init_y;
+    init_x = max_x;
 
-      positionX += size;
+    if( (positionX + (len_y * fontSize)) > maxWidth ) {
+      positionX = fontSize;
+      max_x = positionX;
+      init_x = max_x;
+      
+      positionY += ((len_x + 1) * fontSize);
+      init_y = positionY;
+    }
+
+    for(let a = 0; a < len_x; a++) {
+
+      for(let b = 0; b < len_y; b++) {
+        if( dtx[a][b] === 0 ) {
+          fontColor = "#fff";
+        } else {
+          fontColor = "red";
+          // process_char(ctx, "F", "#000", fontSize - 10, positionX + 5, positionY)
+          // process_char(ctx, "F", "#000", fontSize - 10, positionX + 5, positionY + fontSize)
+        }
+
+        graphics.rect(positionX, positionY, fontSize, fontSize, fontColor);
+
+        if( dtx[a][b] !== 0 ) {
+          process_char(ctx, allowedChatList.random(), "#000", fontSize - 10, positionX + 7, positionY + fontSize-5)
+        } else {
+          process_char(ctx, allowedChatList.random(), "#000", fontSize - 10, positionX + 7, positionY + fontSize-5)
+        }
+
+        positionX += (fontSize + 1);
+        max_x = positionX + fontSize;
+      }
+
+      process_char(ctx, allowedChatList.random(), "#000", fontSize - 10, positionX + 7, positionY + fontSize-5)
+
+      positionY += (fontSize + 1);
+      positionX =  init_x;
     }
   }
 }
 
-export function displayData(ctx, charList, maxWidth, fontSize=19, fontColor="black", positionX=0, positionY=25) {
+export function displayData(ctx, charList, maxWidth, fontSize=25, fontColor="black", positionX=0, positionY=25) {
 
   const upperCharList = charList.toUpperCase();
   const len = upperCharList.length;
@@ -33,18 +78,16 @@ export function displayData(ctx, charList, maxWidth, fontSize=19, fontColor="bla
   for (let i=0; i<len; i++ ) {
     const charVal = upperCharList[i];
 
-    if(charVal === " ") {
-      // const graphics = new Graphics(ctx, "#fff", positionX, positionY);
-      // const pointList = data['SPACE'](fontSize);
-      // draw_char(graphics, pointList);
+    // if(charVal === " ") {
+    //   // const graphics = new Graphics(ctx, "#fff", positionX, positionY);
+    //   // const pointList = data['SPACE'](fontSize);
+    //   // draw_char(graphics, pointList);
 
-      positionX += fontSize;
-    } else if( allowedChatList.includes(charVal) ) {
-      const graphics = new Graphics(ctx, fontColor, positionX, positionY);
-      const pointList = data[charVal](fontSize);
-      draw_char(graphics, pointList);
-
-      const size = (fontSize * config[charVal].ratio / 10) + 2;
+    //   positionX += fontSize;
+    // } else 
+    if( allowedChatList.includes(charVal) ) {
+      process_char(ctx, charVal, fontColor, fontSize, positionX, positionY)
+      const size = (fontSize * config[charVal].ratio / 10) + 10;
       positionX += size;
     }
 
@@ -53,6 +96,12 @@ export function displayData(ctx, charList, maxWidth, fontSize=19, fontColor="bla
       positionY += (fontSize * 2)
     } 
   }
+}
+
+function process_char(ctx, charVal, fontColor, fontSize, positionX, positionY) {
+  const graphics = new Graphics(ctx, fontColor, positionX, positionY);
+  const pointList = data[charVal](fontSize);
+  draw_char(graphics, pointList);
 }
 
 function draw_char(graphics, pointList) {
