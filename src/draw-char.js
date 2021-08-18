@@ -2,6 +2,10 @@ import Graphics from "../lib/graphics.js";
 import {config, allowedChatList} from "../helper/share.js"
 import data from "../data/index.js";
 
+Array.prototype.random = function() {
+  return this[Math.round( Math.random() * ( this.length - 1) )]
+}
+
 export function generateBackground(ctx, charList, maxWidth, fontSize, fontColor="red", positionX=25, positionY=25) {
   const graphics = new Graphics(ctx);
   const upperCharList = charList.toUpperCase();
@@ -42,13 +46,23 @@ export function generateBackground(ctx, charList, maxWidth, fontSize, fontColor=
           fontColor = "#fff";
         } else {
           fontColor = "red";
+          // process_char(ctx, "F", "#000", fontSize - 10, positionX + 5, positionY)
+          // process_char(ctx, "F", "#000", fontSize - 10, positionX + 5, positionY + fontSize)
         }
 
         graphics.rect(positionX, positionY, fontSize, fontSize, fontColor);
 
+        if( dtx[a][b] !== 0 ) {
+          process_char(ctx, allowedChatList.random(), "#000", fontSize - 10, positionX + 7, positionY + fontSize-5)
+        } else {
+          process_char(ctx, allowedChatList.random(), "#000", fontSize - 10, positionX + 7, positionY + fontSize-5)
+        }
+
         positionX += (fontSize + 1);
         max_x = positionX + fontSize;
       }
+
+      process_char(ctx, allowedChatList.random(), "#000", fontSize - 10, positionX + 7, positionY + fontSize-5)
 
       positionY += (fontSize + 1);
       positionX =  init_x;
@@ -72,10 +86,7 @@ export function displayData(ctx, charList, maxWidth, fontSize=25, fontColor="bla
     //   positionX += fontSize;
     // } else 
     if( allowedChatList.includes(charVal) ) {
-      const graphics = new Graphics(ctx, fontColor, positionX, positionY);
-      const pointList = data[charVal](fontSize);
-      draw_char(graphics, pointList);
-
+      process_char(ctx, charVal, fontColor, fontSize, positionX, positionY)
       const size = (fontSize * config[charVal].ratio / 10) + 10;
       positionX += size;
     }
@@ -85,6 +96,12 @@ export function displayData(ctx, charList, maxWidth, fontSize=25, fontColor="bla
       positionY += (fontSize * 2)
     } 
   }
+}
+
+function process_char(ctx, charVal, fontColor, fontSize, positionX, positionY) {
+  const graphics = new Graphics(ctx, fontColor, positionX, positionY);
+  const pointList = data[charVal](fontSize);
+  draw_char(graphics, pointList);
 }
 
 function draw_char(graphics, pointList) {
