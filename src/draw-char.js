@@ -6,10 +6,10 @@ Array.prototype.random = function() {
   return this[Math.round( Math.random() * ( this.length - 1) )]
 }
 
-export function generateBackground(ctx, charList, maxWidth, fontSize, fontColor="red", positionX=25, positionY=25) {
+export function generateBackground(ctx, inputList, maxWidth, fontSize, fontColor="red", positionX=25, positionY=25) {
   const graphics = new Graphics(ctx);
-  const upperCharList = charList.toUpperCase();
-  const len = upperCharList.length;
+  // const upperCharList = charList.toUpperCase();
+  // const len = upperCharList.length;
   // const maxChar = Math.floor( canvasWidth / fontSize );
 
   positionX = positionX;
@@ -20,8 +20,8 @@ export function generateBackground(ctx, charList, maxWidth, fontSize, fontColor=
 
   let init_y = fontSize;
   
-  for (const charVal of upperCharList ) {
-    // const charVal = upperCharList[i];
+  for (const input in inputList) {
+    const charVal = input.split("_")[1];
     const dtx = config[charVal]?.["co-ordinates"];
     const len_x = dtx.length;
     const len_y = dtx?.[0].length;
@@ -46,14 +46,15 @@ export function generateBackground(ctx, charList, maxWidth, fontSize, fontColor=
           fontColor = "#fff";
         } else {
           fontColor = "red";
-          // process_char(ctx, "F", "#000", fontSize - 10, positionX + 5, positionY)
-          // process_char(ctx, "F", "#000", fontSize - 10, positionX + 5, positionY + fontSize)
         }
 
         graphics.rect(positionX, positionY, fontSize, fontSize, fontColor);
 
         if( dtx[a][b] !== 0 ) {
-          process_char(ctx, allowedChatList.random(), "#000", fontSize - 10, positionX + 7, positionY + fontSize-5)
+          const val = dtx[a][b].split("|");
+          const firstPart = val[0].split(",");
+          const secondPart = val[1].split(",");
+          process_char(ctx, inputList[input][firstPart[0]][secondPart[0]], "#000", fontSize - 10, positionX + 7, positionY + fontSize-5)
         } else {
           process_char(ctx, allowedChatList.random(), "#000", fontSize - 10, positionX + 7, positionY + fontSize-5)
         }
