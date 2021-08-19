@@ -29,7 +29,7 @@ const input = {
   ],
   "4_A": [
     "NEWDELHI",
-    "MADINA",
+    "MEDINA",
     "DUKE"
   ]
 }
@@ -81,12 +81,12 @@ function drawLine(e) {
 
 const hintTextList = [
   {"text": "FRANKFURT", "info": "One of the largest city of Germany"},
-  {"text": "FAIZABAD", "info": "city of Pakistan/India"},
-  {"text": "HALIFAX", "info": "city of Canada"},
+  {"text": "FAIZABAD", "info": "city in Pakistan/India"},
+  {"text": "HALIFAX", "info": "city in Canada"},
   {"text": "JAKARTA", "info": "Capital Of Indonesia"},
 
   {"text": "DAMASCUS", "info": "Capital Of Syria. The oldest city in the world"},
-  {"text": "MADINA", "info": "Madina is the second holiest city in Islam"},
+  {"text": "MEDINA", "info": "Medina is the second holiest city in Islam"},
 
   {"text": "BANGKOK", "info": "Capital Of Thailand and is called 'Venice of the East'."},
   {"text": "BAKU", "info": "Capital Of Azerbaijan and is called 'City of Winds'"},
@@ -97,6 +97,7 @@ const hintTextList = [
   { "text": "DUKE", "info": ""},
   {"text": "HERS", "info": ""},
   {"text": "IDEA", "info": ""},
+  {"text": "DHAKA", "info": "Capital Of Bangladesh"},
 ];
 
 const hintMainDiv = document.getElementById("cipher-hints-list");
