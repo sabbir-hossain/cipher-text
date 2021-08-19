@@ -4,7 +4,6 @@ const canvas = document.getElementById("myCanvas");
 const ctx = canvas.getContext("2d");
 
 const canvasWidth = ctx.canvas.width;
-// const canvasHeight = ctx.canvas.height;
 
 let backgroundFontSize = 35;
 
@@ -44,7 +43,6 @@ var last_mousex = 0, last_mousey = 0;
 var mousex = 0, mousey = 0;
 var mousedown = false;
 
-
 //Mousedown
 canvas.addEventListener('mousedown', function(e) {
   last_mousex = parseInt(e.clientX-canvasx);
@@ -79,4 +77,46 @@ function drawLine(e) {
     ctx.stroke();
     ctx.restore();
   }
+}
+
+const hintTextList = [
+  {"text": "FRANKFURT", "info": "One of the largest city of Germany"},
+  {"text": "FAIZABAD", "info": "city of Pakistan/India"},
+  {"text": "HALIFAX", "info": "city of Canada"},
+  {"text": "JAKARTA", "info": "Capital Of Indonesia"},
+
+  {"text": "DAMASCUS", "info": "Capital Of Syria. The oldest city in the world"},
+  {"text": "MADINA", "info": "Madina is the second holiest city in Islam"},
+
+  {"text": "BANGKOK", "info": "Capital Of Thailand and is called 'Venice of the East'."},
+  {"text": "BAKU", "info": "Capital Of Azerbaijan and is called 'City of Winds'"},
+  {"text": "BERN", "info": "The de facto capital of Switzerland"},
+  {"text": "NEW DELHI", "info": "Capital Of India. It is the world’s second most bird-rich city in the world"},
+
+  {"text": "ATHENS", "info": "Capital and largest city of Greece and named in the honor of Greek goddess 'Athena'"},
+  { "text": "DUKE", "info": ""},
+  {"text": "HERS", "info": ""},
+  {"text": "IDEA", "info": ""},
+];
+
+const hintMainDiv = document.getElementById("cipher-hints-list");
+
+for(const hintText of hintTextList) {
+  const hintDiv = document.createElement("div");
+  hintDiv.classList.add("cipher-hints");
+
+  const hintSpan = document.createElement("span");
+  hintSpan.classList.add("text-dt");
+  const textNode = document.createTextNode(hintText.text);
+  hintSpan.appendChild(textNode);
+
+  const hintInfoSpan = document.createElement("span");
+  hintInfoSpan.classList.add("text-dt-info");
+  const textNode02 = document.createTextNode(hintText.info);
+  hintInfoSpan.appendChild(textNode02);
+
+  hintDiv.appendChild(hintSpan);
+  hintDiv.appendChild(hintInfoSpan);
+
+  hintMainDiv.appendChild(hintDiv);
 }

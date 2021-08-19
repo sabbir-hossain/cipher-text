@@ -1,5 +1,5 @@
 body {
-  background-color: #666;
+  background-color: #303030;
 }
 
 #myCanvas {
@@ -12,21 +12,24 @@ canvas {
   display: block;
 }
 
-.input-continer {
-  display: flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	justify-content: flex-start;
-	align-items: stretch;
-	align-content: stretch;
+#cipher-hints-list {
+  padding: 1.5em;
+  color: #b4b4b4;
 
-  font-size: 18px;
-  font-weight: 500;
-  padding: 20px;
-  color: #fff;
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%; 
 }
 
-.input-continer > input {
-  margin-right: 25px;
-  margin-left: 7px;
+.cipher-hints {
+  padding: 5px 10px;
+  line-height: 1.5em;
+}
+
+.text-dt {
+  background-color: #be8034;
+  padding: 3px 6px;
+  border-radius: 5px;
+  margin-right: 7px;
+  color: #3f0505;
+  font-weight: 500;
 }
