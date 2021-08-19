@@ -48,7 +48,7 @@ export function generateBackground(ctx, inputList, maxWidth, fontSize, fontColor
           fontColor = "red";
         }
 
-        graphics.rect(positionX, positionY, fontSize, fontSize, fontColor);
+        // graphics.rect(positionX, positionY, fontSize, fontSize, fontColor);
 
         if( dtx[a][b] !== 0 ) {
           const val = dtx[a][b].split("|");
