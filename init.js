@@ -39,10 +39,17 @@ generateBackground(ctx, input, canvasWidth, backgroundFontSize);
 //Variables
 var isDrawing, points = [ ];
 var lineWidth = 30;
+var color = '#e09200';
+var colorList = [
+  "#FF5733", '#e09200', "#F7DC6F", 
+  "#AF7AC5", "#7FB3D5", "#5D6D7E",
+  "#76D7C4", "#73C6B6",
+];
 
 //Mousedown
 canvas.addEventListener('mousedown', function(e) {
   isDrawing = true;
+
   points.push({ 
     x: e.offsetX !== e.clientX ? e.offsetX : e.clientX, 
     y: e.clientY,
@@ -55,6 +62,7 @@ canvas.addEventListener('mouseup', function(e) {
   // mousedown = false;
   isDrawing = false;
   points.length = 0;
+  color = colorList[ Math.floor(Math.random() * (colorList.length-1)) ]
 });
 
 //Mousemove
@@ -70,7 +78,7 @@ canvas.addEventListener('mousemove', function(e) {
     width: lineWidth
   });
 
-  ctx.strokeStyle = '#e09200';
+  ctx.strokeStyle = color;
   ctx.lineJoin = ctx.lineCap = 'round';
 
   for (var i = 1; i < points.length; i++) {
