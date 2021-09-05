@@ -1,7 +1,6 @@
 import createHtmlElement from "../../lib/dom.js";
-import dataObject from "./dom-tree.js";
-import { page } from "./common.js";
+import { mainInputObject } from "./dom-tree.js";
 
-const mainElement = createHtmlElement( dataObject(page) );
+const mainElement = createHtmlElement( mainInputObject() );
 
 export default mainElement;

@@ -11,7 +11,7 @@ const footerObject = (page) => {
           },
           {
             name: "span.footer-info",
-            text: "Mohd. Sabbir Hossain"
+            text: "S@BB!R"
           },
           {
             name: "a.footer-link",

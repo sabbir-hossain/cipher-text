@@ -9,7 +9,7 @@ export function removeAllChildElement(
   return htmlElement;
 };
 
-export function setHtmlElement(
+function setHtmlElement(
   htmlElement = throwError("setHtmlElement"),
   obj
 ){
@@ -19,7 +19,7 @@ export function setHtmlElement(
   return htmlElement;
 };
 
-export function createTextElement(
+function createTextElement(
   htmlElement = throwError("createTextElement"),
   text = null
 ){
@@ -28,12 +28,16 @@ export function createTextElement(
   return htmlElement;
 };
 
-export function createHtmlChildElement(
+function createHtmlChildElement(
   element = throwError("createHtmlChildElement"),
   childElement = []
 ) {
 
   for (let child of childElement) {
+    if( child?.isHide) {
+      continue;
+    }
+
     // const childData = createHtmlElement(child);
     element.appendChild( createHtmlElement(child) );
   }
@@ -51,13 +55,19 @@ export default function createHtmlElement(htmlObject = throwError("createHtmlEle
     childElement = []
   } = htmlObject;
 
+  if( attributes?.isHide ) {
+    return;
+  }
+
   const domElm = name.split(".");
 
   let element = document.createElement(domElm[0]);
   text && createTextElement(element, text);
 
+  const classList = domElm.slice(1);
+
   Object.assign(attributes, { 
-    class: domElm[1] ? domElm[1] : attributes.class || "" 
+    class: classList.length > 0 ? classList.join(" ") : attributes.class || "" 
   })
   setHtmlElement(element, attributes);
 

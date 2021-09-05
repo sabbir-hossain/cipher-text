@@ -30,30 +30,6 @@ export function createEventListener( eventList = [] ) {
   }
 };
 
-export function showToastr(message = "", showTime = 3000, toastrDivId = "toastr-title") {
-
-  const element = document.getElementById(toastrDivId);
-
-  hideElement(element);
-  createTextElement(element, message);
-  displayElement(element);
-
-  setTimeout(() => {
-    hideElement(element);
-  }, showTime);
-}
-
-export function hideElement(element) {
-  element.innerHTML = "";
-  element.classList.add("display-none");
-  element.classList.remove("display");
-}
-
-export function displayElement(element) {
-  element.classList.add("display");
-  element.classList.remove("display-none");
-}
-
 export function getDataAttributes(
   element = throwError("getDataAttributes/element"),
   mapData = {}
@@ -85,4 +61,22 @@ export function verifyAttribute(
   }
 
   return status;
+}
+
+export function getHtmlAttributes(  
+  identifier = throwError("getHtmlAttributes/identifier"),
+  type = "class"
+) {
+  console.log({identifier, type})
+  
+  if (type === "id") {
+    return document.getElementById(identifier);
+  } 
+  else if (type === "class") {
+
+    return document.getElementsByClassName(identifier);
+    // Array.from(className).forEach(function(element) {
+    //   element.addEventListener(name, functionReference);
+    // });
+  }
 }
