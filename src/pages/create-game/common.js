@@ -1,0 +1,1 @@
+export const page = "create new";

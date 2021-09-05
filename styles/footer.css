@@ -1,0 +1,8 @@
+a.footer-link {
+  margin-left: 15px;
+  color: #bbb;
+}
+
+a.footer-link:hover {
+  opacity: 0.6;
+}
