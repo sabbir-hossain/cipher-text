@@ -26,7 +26,7 @@ import Y from "./draw_y.js";
 import Z from "./draw_z.js";
 import SPACE from "./draw_space.js";
 
-import charConfig from "./config";
+import { charConfig } from "./config.js";
 
 const data = {
   A, B, C, D, E, F, G, H, I, J, K, L, 

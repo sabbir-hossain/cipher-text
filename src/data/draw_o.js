@@ -1,4 +1,4 @@
-import { config } from "../helper/share.js";
+import { charConfig as config } from "./config.js";
 
 export default function O(size = 16) {
   const pointList = {};

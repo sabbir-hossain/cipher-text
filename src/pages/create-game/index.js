@@ -1,17 +1,27 @@
-import headerElement from "./header.js";
-import mainElement from "./main.js"
-import footerElement from "./footer.js";
-
 import { createEventListener } from "../../lib/event.js";
 import { cipherInputClass } from "./common.js";
 import { autoSelectInput } from "../../lib/utils.js";
 
+import createHtmlElement from "../../lib/dom.js";
+import { page } from "./common.js";
+
 import { eventList } from "./event.js";
+import { mainInputObject } from "./dom-tree.js";
 
-document.body.appendChild(headerElement);
-document.body.appendChild(mainElement);
-document.body.appendChild(footerElement);
+import headerObject from "../../layout/header.js";
+import footerObject from "../../layout/footer.js";
 
-createEventListener(eventList);
+export default function initFunction(options = {}) {
 
-autoSelectInput(`${cipherInputClass}-1`)
+  document.body.appendChild( createHtmlElement( headerObject(page) ) );
+
+  document.body.appendChild( createHtmlElement( mainInputObject(options) ));
+
+  document.body.appendChild(createHtmlElement( footerObject(page) ));
+
+  createEventListener(eventList);
+
+  autoSelectInput(`${cipherInputClass}-1`)
+}
+
+initFunction({ cipherText: ["F", "R", "E", "Y", "J", "A"]});

@@ -14,7 +14,7 @@ function setHtmlElement(
   obj
 ){
   for (let key in obj) {
-    htmlElement.setAttribute(key, obj[key]);
+    obj[key] && htmlElement.setAttribute(key, obj[key]);
   }
   return htmlElement;
 };
@@ -61,7 +61,7 @@ export default function createHtmlElement(htmlObject = throwError("createHtmlEle
 
   const domElm = name.split(".");
 
-  let element = document.createElement(domElm[0]);
+  let element = document.createElement(domElm[0] || "div");
   text && createTextElement(element, text);
 
   const classList = domElm.slice(1);

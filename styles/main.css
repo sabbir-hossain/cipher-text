@@ -44,8 +44,9 @@
   color: #666;
   border-radius: 5px;
   cursor: pointer;
-  padding: 5px 15px;
-  margin-top: -2px;
+  padding: 4px 15px;
+  margin-top: 0px;
+  padding-top: 5px;
 }
 
 .cipher-main-input-btn:hover {

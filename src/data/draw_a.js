@@ -1,4 +1,4 @@
-import { config } from "../helper/share.js";
+import { charConfig as config } from "./config.js";
 import { get_slope } from "../helper/math.js"
 
 export default function A(size = 16) {

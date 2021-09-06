@@ -1,30 +1,38 @@
-import { cipherMainInputSaveId, cipherInputClass, totalMainInputCharLen } from "./common.js";
+import { 
+  cipherMainInputSaveId, 
+  cipherInputClass, 
+  hintInputClass, 
+  totalMainInputCharLen 
+} from "./common.js";
+import { generateInputList } from "../../lib/generate.js";
 
-const generateMainInput = (length=0, className=cipherInputClass) => Array.from({length}).map((_, input) => ({
-  name: `input.${className}`,
-  attributes: {
-    id: `${className}-${input + 1}`,
-    placeholder: input + 1,
-    maxlength: 1,
-    size: 1,
-    [`data-index`]: input + 1
-  }
-}))
+import charData from "../../data/index.js";
 
-export const mainInputObject = () => {
+
+export const mainInputObject = (options = {}) => {
   return {
     name: "main.main-contents",
     childElement: [
       {
-        name: "div.cipher-main",
+        name: ".cipher-main",
         childElement: [
           {
-            name: "div.cipher-main-title",
+            name: ".cipher-main-title",
             text: "Enter cipher text (5-6 characters) : ",
           },
           {
-            name: "div.cipher-main-input-div",
-            childElement: generateMainInput(totalMainInputCharLen)
+            name: ".cipher-main-input-div",
+            childElement: generateInputList(
+              totalMainInputCharLen, 
+              cipherInputClass,
+              {
+                attributeData: {
+                  maxlength: 1,
+                  size: 1
+                },
+                dataList: [{key: "index", value: ""}]
+              }
+            )
           },
           {
             name: "button.cipher-main-input-btn",
@@ -34,7 +42,32 @@ export const mainInputObject = () => {
             }
           }
         ]
+      }, {
+        name: ".cipher-question-list",
+        text: "all question goes here",
+        childElement: generateQuestionList(options)
       }
     ]
   }
 };
+
+function generateQuestionList(option) {
+  console.log(" generateQuestionList : ", { option });
+  const { cipherText } = option;
+
+  const hintsList = cipherText.reduce(  (total, char, index) => [...total, ...charData["charConfig"][char]["questionsLength"].map( (question) => generateInputList(
+    question, 
+    hintInputClass,
+    {
+      attributeData: {
+        maxlength: 1,
+        size: 1
+      },
+      dataList: [{key: "index", value: `${char}-${index}`}]
+    }
+  ) )], [])
+
+  console.log({hintsList})
+
+  return [];
+}

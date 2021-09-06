@@ -10,6 +10,7 @@ import {
 } from "../../lib/utils.js";
 
 import { getHtmlAttributes } from "../../lib/event.js";
+import initFunction from "./index.js";
 
 export const eventList = [
   {
@@ -32,7 +33,9 @@ function handleMainCipherInputSaveBtnClick(event) {
     return element.value.toUpperCase();
   });
 
-  console.log({data})
+  // console.log({data})
+  initFunction({ cipherText: data })
+
 }
 
 function handleMainCipherInputKeyup(event) {

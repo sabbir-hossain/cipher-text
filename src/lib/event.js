@@ -6,7 +6,7 @@ export function createEvent(
   type = throwError("createEvent/type"),
   functionReference = throwError("createEvent/functonReference")
 ){
-  
+  console.log({identifier, type})
   if (type === "id") {
     document
       .getElementById(identifier)
@@ -67,8 +67,6 @@ export function getHtmlAttributes(
   identifier = throwError("getHtmlAttributes/identifier"),
   type = "class"
 ) {
-  console.log({identifier, type})
-  
   if (type === "id") {
     return document.getElementById(identifier);
   } 
