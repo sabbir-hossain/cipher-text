@@ -1,16 +1,23 @@
 import { 
   cipherMainInputSaveId, 
+  // cipherWordGenerateId,
+  cipherMainHintId,
+  
   cipherInputClass,
-  totalMainInputCharLen
+  hintInputClass,
+
+  hintInputOptClass
+  // totalMainInputCharLen
 } from "./common.js";
 
 import {
-  autoSelectInput, 
-  autoFocus
-} from "../../lib/utils.js";
+  handleMainHintChange,
+  handleFocusInputKeyup,
+  handleWordInputFocus,
+  handleMainCipherInputSaveBtnClick,
+  handleWordOptChange,
+} from "./event-handle.js"
 
-import { getHtmlAttributes } from "../../lib/event.js";
-import initFunction from "./index.js";
 
 export const eventList = [
   {
@@ -18,34 +25,29 @@ export const eventList = [
     functionReference: handleMainCipherInputSaveBtnClick 
   },
   {
+    identifier: cipherMainHintId,
+    name: "change",
+    functionReference: handleMainHintChange
+  },
+  {
     identifier: cipherInputClass,
     type: "class",
     name: "keyup",
-    functionReference: handleMainCipherInputKeyup
+    functionReference: handleFocusInputKeyup
   }
 ];
 
-function handleMainCipherInputSaveBtnClick(event) {
-  event.preventDefault();
-
-  const inputText = getHtmlAttributes(`${cipherInputClass}`)
-  const data = Array.from(inputText).map(function(element) {
-    return element.value.toUpperCase();
-  });
-
-  // console.log({data})
-  initFunction({ cipherText: data })
-
-}
-
-function handleMainCipherInputKeyup(event) {
-  event.preventDefault();
-  const { index } = event.target.dataset;
-  const { className } = event.target;
-
-  if( index == totalMainInputCharLen) {
-    autoFocus(`${cipherMainInputSaveId}`);
-  } else {
-    autoSelectInput(`${className}-${+index + 1}`);
+export const WordEventList = [
+  {
+    identifier: hintInputClass,
+    type: "class",
+    name: "keyup",
+    functionReference: handleWordInputFocus 
+  },
+  {
+    identifier: hintInputOptClass,
+    type: "class",
+    name: "change",
+    functionReference: handleWordOptChange
   }
-}
+]

@@ -1,3 +1,5 @@
+import "../../services/firebase-setup.js";
+
 import { createEventListener } from "../../lib/event.js";
 import { cipherInputClass } from "./common.js";
 import { autoSelectInput } from "../../lib/utils.js";
@@ -24,4 +26,6 @@ export default function initFunction(options = {}) {
   autoSelectInput(`${cipherInputClass}-1`)
 }
 
-initFunction({ cipherText: ["F", "R", "E", "Y", "J", "A"]});
+// cipherText: ["F", "R", "E", "Y", "J", "A"]
+initFunction({ });
+

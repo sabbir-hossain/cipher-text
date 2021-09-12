@@ -28,7 +28,7 @@ function createTextElement(
   return htmlElement;
 };
 
-function createHtmlChildElement(
+export function createHtmlChildElement(
   element = throwError("createHtmlChildElement"),
   childElement = []
 ) {

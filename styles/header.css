@@ -13,8 +13,12 @@
   width: 90%;
 }
 
-.header-title {
+.header-main {
   margin-top: 13px;
+}
+
+.header-title {
+
   font-size: 1.4em;
   cursor: pointer;
 }

@@ -6,7 +6,7 @@ export function createEvent(
   type = throwError("createEvent/type"),
   functionReference = throwError("createEvent/functonReference")
 ){
-  console.log({identifier, type})
+  // console.log({identifier, type})
   if (type === "id") {
     document
       .getElementById(identifier)

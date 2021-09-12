@@ -28,8 +28,11 @@ const headerObject = (page) => {
         name: "div.context-header",
         childElement: [
           {
-            name: "div.header-title",
-            text: "Cipher Text"
+            name: "div.header-main",
+            childElement: [{
+              name: "span.header-title",
+              text: "Cipher Text"
+            }]
           },
           {
             name: "ul.header-menu",
