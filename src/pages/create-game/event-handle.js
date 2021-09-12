@@ -42,11 +42,11 @@ export async function handleMainCipherInputSaveBtnClick(event) {
   }).filter(val => val.trim() !== "");
 
   data["cipher"] = dt;
-  console.log({data});
+  // console.log({data});
 
   const result = await savePuzzles(data);
 
-  console.log("handleMainCipherInputSaveBtnClick : ", {result})
+  // console.log("handleMainCipherInputSaveBtnClick : ", {result})
 
   data["id"] = result.id;
 

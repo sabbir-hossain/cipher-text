@@ -163,3 +163,27 @@
 .btn-text {
   margin-left: 7px;
 }
+
+canvas {
+  padding: 0;
+  margin: auto;
+  display: block;
+}
+
+#cipher-canvas {
+  width: 100%;
+  height: 400px;
+  background-color: #dee7e4;
+}
+
+.word {
+  background-color: #dee7e4;
+  color: #333;
+  padding: 1px 5px;
+  border-radius: 2px;
+}
+
+.word-hints {
+  margin-left: 15px;
+  line-height: 1.4em;
+}

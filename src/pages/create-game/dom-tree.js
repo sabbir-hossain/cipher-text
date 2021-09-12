@@ -105,7 +105,7 @@ export const allWordContentObject = (options = {}) => ({
 
 function generateQuestionList(option) {
   const { cipherText = [] } = option;
-console.log({cipherText})
+// console.log({cipherText})
   let counter = 0;
   return  cipherText.reduce(  (total, char, index) => [...total, ...charData["charConfig"][char]["questionsLength"].map( (question) => ({
     name: ".cipher-input-div",
