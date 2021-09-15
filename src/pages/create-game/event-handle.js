@@ -102,6 +102,7 @@ export async function handleWordInputFocus(event) {
     const { nextId, index } = event.target.dataset;
 
     const inputList = document.querySelectorAll(`input.word-input[data-index='${index}']`);
+    // const inputList = getHtmlAttributes(`input.word-input[data-index='${index}']`,"query");
 
     const values = [];
     let wordCompleteStatus = true;  

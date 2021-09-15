@@ -76,5 +76,7 @@ export function getHtmlAttributes(
     // Array.from(className).forEach(function(element) {
     //   element.addEventListener(name, functionReference);
     // });
+  } else if(type === "query") {
+    return document.querySelectorAll(identifier);
   }
 }

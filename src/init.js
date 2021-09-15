@@ -1,4 +1,4 @@
-import { generateBackground } from "./lib/draw-char.js";
+import { generateBackground } from "./lib/canvas/draw.js";
 
 const canvas = document.getElementById("myCanvas");
 const ctx = canvas.getContext("2d");
