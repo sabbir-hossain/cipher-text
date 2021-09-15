@@ -1,4 +1,7 @@
 import { getPuzzles } from "../../services/get.js";
+import {
+  canvasId
+} from "./common.js";
 
 export const mainInputObject = async (options = {}) => {
 
@@ -9,7 +12,7 @@ export const mainInputObject = async (options = {}) => {
         {
           name: "canvas.cipher",
           attributes: {
-            id: "cipher-canvas"
+            id: canvasId
           }
         },
         data
@@ -25,7 +28,7 @@ export const allWordContentObject = async (options = {}) => ({
 
 async function generateWordList(option) {
 
-  return getPuzzles()
+  return getPuzzlesData()
     .then( (result) => Promise.all(
         Object.values(result.wordData).map( ({ hint, text}) => (
           {
@@ -44,4 +47,8 @@ async function generateWordList(option) {
         ) )
       )
     )
+}
+
+async function getPuzzlesData() {
+  return getPuzzles();
 }

@@ -7,7 +7,7 @@ Array.prototype.random = function() {
 }
 
 export function generateBackground(ctx, inputList, maxWidth, fontSize, fontColor="red", positionX=25, positionY=25) {
-  const graphics = new Graphics(ctx);
+  // const graphics = new Graphics(ctx);
   // const upperCharList = charList.toUpperCase();
   // const len = upperCharList.length;
   // const maxChar = Math.floor( canvasWidth / fontSize );

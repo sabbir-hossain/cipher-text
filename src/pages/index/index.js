@@ -13,8 +13,7 @@ export default async function initFunction(options = {}) {
 
   document.body.appendChild( createHtmlElement( headerObject(page) ) );
 
-  document.body.appendChild( createHtmlElement(  await  mainInputObject(options)  ));
-
+  document.body.appendChild( createHtmlElement(  await mainInputObject(options)  ));
 
   document.body.appendChild(createHtmlElement( footerObject(page) ));
 
