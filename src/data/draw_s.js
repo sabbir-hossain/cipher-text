@@ -1,0 +1,139 @@
+import { charConfig as config } from "./config.js";
+
+export default function S(size = 16) {
+  const pointList = {};
+
+  const max_y = size;
+  const max_x = max_y *  config['S'].ratio / 10;
+
+  const totalLineY = 8;
+  const y_unit = Math.round( max_y / totalLineY );
+
+  const totalLineX = 6;
+  const x_unit = Math.round( max_x / totalLineX );
+
+  const constX = ( x_unit * 0.50 );
+  const constY = ( y_unit * 0.50 );
+
+  pointList["first"] = { 
+    x1: 0, y1: y_unit * (totalLineY - 1),
+    x2: x_unit, y2:  y_unit * totalLineY,
+    x3: x_unit * totalLineX, y3:  y_unit * (totalLineY - 1)
+  };
+
+  pointList["second"] = { 
+    x1: x_unit * (totalLineX - 1), y1: y_unit * totalLineY,
+    x2: x_unit, y2:  y_unit * totalLineY,
+    x3: x_unit * totalLineX, y3:  y_unit * (totalLineY - 1)
+  };
+
+  pointList["third"] = { 
+    x1: x_unit * (totalLineX - 1), y1: y_unit * (totalLineY - 2),
+    x2: x_unit * (totalLineX - 1), y2: y_unit * (totalLineY - 1),
+    x3: x_unit * totalLineX, y3:  y_unit * (totalLineY - 1)
+  };
+
+  pointList["forth"] = { 
+    x1: x_unit * (totalLineX - 1), y1: y_unit * (totalLineY - 2),
+    x2: x_unit * totalLineX, y2: y_unit * (totalLineY - 2),
+    x3: x_unit * totalLineX, y3:  y_unit * (totalLineY - 1)
+  };
+
+  pointList["fifth"] = { 
+    x1: x_unit * (totalLineX - 1), y1: y_unit * (totalLineY - 1),
+    x2: x_unit * (totalLineX - 2) + constX, y2: y_unit * (totalLineY - 1),
+    x3: x_unit * (totalLineX - 1), y3:  (y_unit * (totalLineY - 2)) + constY
+  };
+
+  pointList["sixth"] = { 
+    x1: 0, y1: y_unit *  (totalLineY - 1),
+    x2: x_unit, y2: y_unit *  (totalLineY - 1),
+    x3: 0, y3: y_unit *  (totalLineY /2 + 1)- constY
+  };
+
+  pointList["seven"] = { 
+    x1: x_unit, y1: (y_unit * (totalLineY /2)) - constY,
+    x2: x_unit, y2: y_unit *  (totalLineY - 1),
+    x3: 0, y3: y_unit *  (totalLineY /2 + 1)- constY
+  };
+
+  pointList["eight"] = { 
+    x1: x_unit, y1: y_unit * (totalLineY - 1),
+    x2: x_unit + constX, y2: y_unit *  (totalLineY - 1),
+    x3: x_unit, y3: (y_unit * (totalLineY - 1)) - constY
+  };
+
+  pointList["nine"] = { 
+    x1: x_unit, y1: y_unit * (totalLineY /2) - constY,
+    x2: x_unit, y2: y_unit *  ((totalLineY /2) + 1)- constY,
+    x3: x_unit * (totalLineX), y3: y_unit *  (totalLineY /2) - constY
+  };
+
+  pointList["ten"] = { 
+    x1: x_unit, y1: y_unit * (totalLineY /2 + 1) - constY,
+    x2: x_unit * (totalLineX - 1), y2: y_unit *  ((totalLineY /2) + 1) - constY,
+    x3: x_unit * (totalLineX), y3: y_unit *  (totalLineY /2) - constY
+  };
+
+  pointList["eleven"] = { 
+    x1: x_unit * (totalLineX), y1: y_unit ,
+    x2: x_unit * (totalLineX - 1), y2: y_unit *  ((totalLineY /2) )  - constY,
+    x3: x_unit * (totalLineX), y3: y_unit *  (totalLineY /2)  - constY
+  };
+
+  pointList["twelve"] = { 
+    x1: x_unit * (totalLineX), y1: y_unit ,
+    x2: x_unit * (totalLineX - 1), y2: 0,
+    x3: x_unit * (totalLineX-1), y3: y_unit *  (totalLineY /2) - constY
+  };
+
+  pointList["thirteen"] = { 
+    x1: x_unit, y1: 0,
+    x2: x_unit * (totalLineX - 1), y2: 0,
+    x3: x_unit * (totalLineX-1), y3: y_unit 
+  };
+
+  pointList["fourteen"] = { 
+    x1: x_unit, y1: 0,
+    x2: 0, y2: y_unit,
+    x3: x_unit * (totalLineX-1), y3: y_unit 
+  };
+
+  pointList["fifteen"] = { 
+    x1: x_unit, y1: y_unit,
+    x2: 0, y2: y_unit,
+    x3: x_unit , y3: y_unit  * 2
+  };
+
+  pointList["sixteen"] = { 
+    x1: 0, y1: y_unit,
+    x2: 0, y2: y_unit * 2,
+    x3: x_unit , y3: y_unit  * 2
+  };
+
+  pointList["seventeen"] = { 
+    x1: x_unit * (totalLineX - 1), y1: (y_unit * (totalLineY/2)) - constY,
+    x2: x_unit * (totalLineX - 1), y2: (y_unit * (totalLineY/2)) - (2*constY),
+    x3: (x_unit * (totalLineX - 1)) - constX, y3: (y_unit * (totalLineY/2)) - constY
+  };
+
+  pointList["eighteen"] = { 
+    x1: x_unit * (totalLineX - 1), y1: y_unit,
+    x2: x_unit * (totalLineX - 1), y2: y_unit + constY,
+    x3: (x_unit * (totalLineX - 1)) - constX, y3: y_unit
+  };
+
+  pointList["nineteen"] = { 
+    x1: x_unit, y1: y_unit,
+    x2: x_unit, y2: y_unit + constY,
+    x3: x_unit + constX, y3: y_unit
+  };
+
+  pointList["twenty"] = { 
+    x1: x_unit, y1: y_unit * (totalLineY /2 + 1) - constY,
+    x2: x_unit + constX, y2: y_unit * (totalLineY /2 + 1) - constY,
+    x3: x_unit, y3:y_unit * (totalLineY /2) + (2*constY)
+  };
+
+  return pointList;
+}

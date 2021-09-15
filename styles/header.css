@@ -1,0 +1,57 @@
+.header-contents {
+  display: block;
+  background-color: #494b4b;
+  color: #f9f9f9;
+  margin: 0;
+  padding: 0;
+}
+
+.context-header{
+  display: grid;
+  grid-template-columns: minmax(250px, 35%) 1fr;
+  margin: 0 auto;
+  width: 90%;
+}
+
+.header-main {
+  margin-top: 13px;
+}
+
+.header-title {
+
+  font-size: 1.4em;
+  cursor: pointer;
+}
+
+.header-title:hover {
+  opacity: 0.6;
+}
+
+ul.header-menu {
+  margin-top: 10px;
+}
+
+ul.header-menu > li {
+  /* display: inline; */
+  list-style-type: none;
+  float: right;
+}
+
+.route-name {
+  padding: 5px 15px;
+  padding-right: 0;
+}
+
+ul.header-menu > li  a {
+  color: #f9f9f9;
+  text-decoration: none;
+  font-size: 1em;
+}
+
+ul.header-menu > li  a:hover {
+  opacity: 0.7;
+}
+
+.active-route {
+  color: #bfbfbf !important;
+}

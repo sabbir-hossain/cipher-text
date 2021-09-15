@@ -3,3 +3,5 @@ firebase copy.json
 database.rules.json
 .firebase
 .firebaserc
+
+config.js
