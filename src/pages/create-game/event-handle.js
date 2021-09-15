@@ -24,7 +24,7 @@ import { savePuzzles, updatePuzzles } from "../../services/create.js";
 
 const data = {};
 
-console.log("init data :: ", { data });
+// console.log("init data :: ", { data });
 
 export function handleMainHintChange(event) {
   event.preventDefault();
@@ -103,15 +103,28 @@ export async function handleWordInputFocus(event) {
   if( value && value !== "") {
     const { nextId, index } = event.target.dataset;
 
-    data["wordData"] = data["wordData"] || {};
-    data["wordData"][index] = data["wordData"][index] || {};
+    const inputList = document.querySelectorAll(`input.word-input[data-index='${index}']`);
 
-    data["wordData"][index].text = data["wordData"][index].text || []
-    data["wordData"][index].text.push(value);
+    const values = [];
+    let wordCompleteStatus = true;  
+    for (let input of inputList) {
+      if(input.value.trim() !== "") {
+        values.push(input.value.toUpperCase())
+      } else {
+        wordCompleteStatus = false;
+        break;
+      }
+    }
 
-    const result = await updatePuzzles(data["id"], data);
+    if(wordCompleteStatus) {
+      data["wordData"] = data["wordData"] || {};
+      data["wordData"][index] = data["wordData"][index] || {};
 
-    // console.log(data);
+      data["wordData"][index].text = values;
+      await updatePuzzles(data["id"], data);
+      // console.log(data);
+    } 
+
     autoFocus(`${nextId}`);
   }
 }
@@ -122,13 +135,12 @@ export async function handleWordOptChange(event) {
 
   const { nextId, index } = event.target.dataset;
 
-  if( value && value !== "") {
+  if( value && value.trim() !== "") {
     data["wordData"] = data["wordData"] || {};
     data["wordData"][index] = data["wordData"][index] || {};
     data["wordData"][index].hint = value;
-    // console.log(data);
-
-    const result = await updatePuzzles(data["id"], data);
+      // console.log(data);
+    await updatePuzzles(data["id"], data);
   }
   autoFocus(`${nextId}`);
 }

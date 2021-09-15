@@ -127,7 +127,7 @@ function generateQuestionList(option) {
             value: `${++counter}-`,
             dataList: [{
               key: "index", 
-              valueFunc: ({_i}) => `${char}-${counter}`
+              valueFunc: ({_i}) => `${index}-${char}-${counter}`
             }, {
               key: "next-id",
               valueFunc: ({_i}) => _i !== (question-1) ? `word-input-${counter}-${_i + 2}` : `hint-${counter}-${question}`
@@ -144,7 +144,7 @@ function generateQuestionList(option) {
             attributes: {
               id: `hint-${counter}-${question}`,
               placeholder: "hints (optional)",
-              ['data-index']:  `${char}-${counter}`,
+              ['data-index']:  `${index}-${char}-${counter}`,
               ['data-next-id']: index !== (cipherText.length -1) ?  `word-input-${counter+1}-1` : "word-input-1-1"
             }
           },
