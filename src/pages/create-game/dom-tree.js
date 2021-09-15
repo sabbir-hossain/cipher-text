@@ -145,7 +145,8 @@ function generateQuestionList(option) {
               id: `hint-${counter}-${question}`,
               placeholder: "hints (optional)",
               ['data-index']:  `${index}-${char}-${counter}`,
-              ['data-next-id']: index !== (cipherText.length -1) ?  `word-input-${counter+1}-1` : "word-input-1-1"
+              ['data-next-id']: `word-input-${counter+1}-1` 
+              // ['data-next-id']: index !== (cipherText.length -1) ?  `word-input-${counter+1}-1` : ""
             }
           },
           // {

@@ -24,12 +24,10 @@ import { savePuzzles, updatePuzzles } from "../../services/create.js";
 
 const data = {};
 
-// console.log("init data :: ", { data });
 
 export function handleMainHintChange(event) {
   event.preventDefault();
-  const val = event.target.value;
-  // console.log({val, event});
+  // const val = event.target.value;
   data["cipherHint"] = event.target.value || "";
 }
 
@@ -122,7 +120,6 @@ export async function handleWordInputFocus(event) {
 
       data["wordData"][index].text = values;
       await updatePuzzles(data["id"], data);
-      // console.log(data);
     } 
 
     autoFocus(`${nextId}`);
@@ -139,7 +136,6 @@ export async function handleWordOptChange(event) {
     data["wordData"] = data["wordData"] || {};
     data["wordData"][index] = data["wordData"][index] || {};
     data["wordData"][index].hint = value;
-      // console.log(data);
     await updatePuzzles(data["id"], data);
   }
   autoFocus(`${nextId}`);
