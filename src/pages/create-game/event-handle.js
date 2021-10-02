@@ -8,6 +8,7 @@ import {
   // hintInputClass,
   // totalMainInputCharLen
 } from "./common.js";
+import config from "../../../config.js";
 
 import { 
   autoFocus
@@ -120,7 +121,7 @@ export async function handleWordInputFocus(event) {
       data["wordData"][index] = data["wordData"][index] || {};
 
       data["wordData"][index].text = values;
-      await updatePuzzles(data["id"], data);
+      updatePuzzles(data["id"], data);
     } 
 
     autoFocus(`${nextId}`);
@@ -137,7 +138,14 @@ export async function handleWordOptChange(event) {
     data["wordData"] = data["wordData"] || {};
     data["wordData"][index] = data["wordData"][index] || {};
     data["wordData"][index].hint = value;
-    await updatePuzzles(data["id"], data);
+    updatePuzzles(data["id"], data);
   }
   autoFocus(`${nextId}`);
+}
+
+export function handleInviteByEmailBtn(event) {
+  event.preventDefault();
+  if(data && data["id"] && data["id"] !== "") {
+    window.location.href = `mailto:someone@yoursite.com?subject=Solve Cipher&body=${config.url}/index.html?id=${data["id"]}`;
+  }
 }

@@ -15,17 +15,13 @@ import footerObject from "../../layout/footer.js";
 
 export default function initFunction(options = {}) {
 
-  document.body.appendChild( createHtmlElement( headerObject(page) ) );
-
+  document.body.appendChild( createHtmlElement( headerObject(page) ));
   document.body.appendChild( createHtmlElement( mainInputObject(options) ));
-
-  document.body.appendChild(createHtmlElement( footerObject(page) ));
+  document.body.appendChild( createHtmlElement( footerObject(page) ));
 
   createEventListener(eventList);
-
   autoSelectInput(`${cipherInputClass}-1`)
 }
 
-// cipherText: ["F", "R", "E", "Y", "J", "A"]
 initFunction({ });
 

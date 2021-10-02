@@ -24,9 +24,15 @@ export function showToastr(message = "", showTime = 3000, toastrDivId = "toastr-
 }
 
 export function autoSelectInput(id) {
-  document.getElementById(`${id}`).select();
+  const element = document.getElementById(`${id}`);
+  if (typeof(element) != 'undefined' && element != null) {
+    element.select()
+  }
 }
 
 export function autoFocus(id) {
-  document.getElementById(`${id}`).focus();
+  const element = document.getElementById(`${id}`);
+  if (typeof(element) != 'undefined' && element != null) {
+    element.focus()
+  }
 }

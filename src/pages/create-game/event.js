@@ -2,6 +2,7 @@ import {
   cipherMainInputSaveId, 
   // cipherWordGenerateId,
   cipherMainHintId,
+  inviteByEmailId,
   
   cipherInputClass,
   hintInputClass,
@@ -16,8 +17,8 @@ import {
   handleWordInputFocus,
   handleMainCipherInputSaveBtnClick,
   handleWordOptChange,
+  handleInviteByEmailBtn,
 } from "./event-handle.js"
-
 
 export const eventList = [
   {
@@ -34,6 +35,10 @@ export const eventList = [
     type: "class",
     name: "keyup",
     functionReference: handleFocusInputKeyup
+  },
+  {
+    identifier: inviteByEmailId,
+    functionReference: handleInviteByEmailBtn
   }
 ];
 

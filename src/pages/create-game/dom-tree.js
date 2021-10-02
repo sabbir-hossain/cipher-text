@@ -1,7 +1,7 @@
 import { 
   allWordDivId,
   cipherMainInputSaveId, 
-  cipherWordGenerateId,
+  inviteByEmailId,
   cipherMainHintId,
 
   cipherInputClass, 
@@ -70,24 +70,24 @@ export const mainInputObject = (options = {}) => {
               }
             ]
           },
-          // {
-          //   name: "button.cipher-main-input-btn",
-          //   attributes: {
-          //     id: cipherWordGenerateId
-          //   },
-          //   childElement: [
-          //     {
-          //       name: "img.btn-icon",
-          //       attributes: {
-          //         src: "./assets/sync.svg"
-          //       }
-          //     },
-          //     {
-          //       name: "span.btn-text",
-          //       text: "generate word(s)"
-          //     }
-          //   ]
-          // }
+          {
+            name: "button.cipher-main-input-btn",
+            attributes: {
+              id: inviteByEmailId
+            },
+            childElement: [
+              {
+                name: "img.btn-icon",
+                attributes: {
+                  src: "./assets/mail.svg"
+                }
+              },
+              {
+                name: "span.btn-text",
+                text: "invite by email"
+              }
+            ]
+          }
         ]
       },
       allWordContentObject({})
@@ -145,8 +145,9 @@ function generateQuestionList(option) {
               id: `hint-${counter}-${question}`,
               placeholder: "hints (optional)",
               ['data-index']:  `${index}-${char}-${counter}`,
-              ['data-next-id']: `word-input-${counter+1}-1` 
-              // ['data-next-id']: index !== (cipherText.length -1) ?  `word-input-${counter+1}-1` : ""
+              ['data-next-id']: `word-input-${counter+1}-1` ,
+              // ['data-test']: `${cipherText.length}-${question}-${(cipherText.length * (question-1))}---${index}-${counter}-${index * counter}`,
+              // ['data-next-id']: (index * counter) !== ((cipherText.length-1) * counter) ?  `word-input-${counter+1}-1` : ""
             }
           },
           // {

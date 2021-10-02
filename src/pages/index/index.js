@@ -22,6 +22,8 @@ export default async function initFunction(options = {}) {
 
   const element = document.getElementsByClassName(mainContentClass)[0];
   removeAllChildElement(element);
+  element.remove();
+
   document.body.appendChild( createHtmlElement( domObject  ));
   document.body.appendChild( createHtmlElement( footerObject(page) ));
 
@@ -33,5 +35,4 @@ export default async function initFunction(options = {}) {
   canvasEvent(canvas, ctx);
 }
 
-// cipherText: ["F", "R", "E", "Y", "J", "A"]
 initFunction({ });
