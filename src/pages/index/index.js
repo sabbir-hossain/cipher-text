@@ -1,6 +1,6 @@
 import "../../services/firebase-setup.js";
 
-import { page, canvasId } from "./common.js";
+import { page, canvasId, mainContentClass } from "./common.js";
 import createHtmlElement from "../../lib/dom.js";
 
 import headerObject from "../../layout/header.js";
@@ -20,7 +20,7 @@ export default async function initFunction(options = {}) {
 
   const { wordList, domObject } = await mainInputObject(options);
 
-  const element = document.getElementsByClassName("main-contents")[0];
+  const element = document.getElementsByClassName(mainContentClass)[0];
   removeAllChildElement(element);
   document.body.appendChild( createHtmlElement( domObject  ));
   document.body.appendChild( createHtmlElement( footerObject(page) ));

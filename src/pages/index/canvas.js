@@ -17,7 +17,12 @@ export function drawCanvas(ctx, inputList, fontSize=35, fontColor="red", positio
 
   let init_x = max_x;
 
+  const initWidth = 1216;
+  // scale font-size
+  fontSize = Math.floor( ( fontSize * maxWidth) / initWidth)
+
   let init_y = fontSize;
+  console.log({maxWidth, fontSize, inputList})
 
   for (const input in inputList) {
     const charVal = input.split("_")[1];

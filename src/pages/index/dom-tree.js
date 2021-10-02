@@ -1,6 +1,7 @@
 import { getPuzzles } from "../../services/get.js";
 import {
-  canvasId
+  canvasId,
+  mainContentClass
 } from "./common.js";
 
 export const mainInputObject = async (options = {}) => {
@@ -20,7 +21,7 @@ export const mainInputObject = async (options = {}) => {
 
 
 export const allWordContentObject = (result, innerWidth) => ({
-  name: "main.main-contents",
+  name: `main.${mainContentClass}`,
   childElement: [
     {
       name: "canvas.cipher",
