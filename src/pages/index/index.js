@@ -14,25 +14,35 @@ import { removeAllChildElement } from "../../lib/dom.js";
 
 export default async function initFunction(options = {}) {
 
-  document.body.appendChild( createHtmlElement( headerObject(page) ) );
+  const urlParams = new URLSearchParams(window.location.search);
+  options._id = urlParams.get('id');
+
+  console.log({options})
+
+  try {
+    document.body.appendChild( createHtmlElement( headerObject(page) ) );
   
-  document.body.appendChild( createHtmlElement( loaderObject(page) ) );
-
-  const { wordList, domObject } = await mainInputObject(options);
-
-  const element = document.getElementsByClassName(mainContentClass)[0];
-  removeAllChildElement(element);
-  element.remove();
-
-  document.body.appendChild( createHtmlElement( domObject  ));
-  document.body.appendChild( createHtmlElement( footerObject(page) ));
-
-  const canvas = document.getElementById(canvasId);
-  const ctx = canvas.getContext("2d");
+    document.body.appendChild( createHtmlElement( loaderObject(page) ) );
   
-  drawCanvas(ctx, wordList);
-
-  canvasEvent(canvas, ctx);
+    const { wordList, domObject } = await mainInputObject(options);
+  
+    const element = document.getElementsByClassName(mainContentClass)[0];
+    removeAllChildElement(element);
+    element.remove();
+  
+    document.body.appendChild( createHtmlElement( domObject  ));
+    document.body.appendChild( createHtmlElement( footerObject(page) ));
+  
+    const canvas = document.getElementById(canvasId);
+    const ctx = canvas.getContext("2d");
+    
+    drawCanvas(ctx, wordList);
+  
+    canvasEvent(canvas, ctx);
+  }
+  catch(error) {
+    console.error(error);
+  }
 }
 
 initFunction({ });

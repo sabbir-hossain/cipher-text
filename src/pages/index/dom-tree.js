@@ -7,7 +7,7 @@ import {
 export const mainInputObject = async (options = {}) => {
   const innerWidth = Math.round( window.innerWidth * 0.89 );
 
-  return getPuzzles()
+  return getPuzzles(options?._id)
     .then(result => {
       return {
         wordList: generateWordList(result),
@@ -36,19 +36,19 @@ export const allWordContentObject = (result, innerWidth) => ({
 })
 
 function generateWordList( result ) {
-  return Object.keys(result.wordData).sort().reduce( (total, key) => {
+  return result.wordData ? Object.keys(result.wordData).sort().reduce( (total, key) => {
     const dt = key.split("-");
     const newKey = dt.slice(0,2).join("_");
     total[newKey] = total[newKey] || [];
     total[newKey].push( result.wordData[key]["text"].join("") );
     return total;
-  }, {} );
+  }, {} ) : [];
 }
 
 function generatePuzzlesHints(result) {
   return  {
     name: ".cipher-question-list",
-    childElement: Object.values(result.wordData).map( ({ hint, text}) => (
+    childElement: result.wordData ? Object.values(result.wordData).map( ({ hint, text}) => (
       {
         name:".cipher-hints",
         childElement: [
@@ -62,6 +62,6 @@ function generatePuzzlesHints(result) {
           }
         ]
       }
-    ) )
+    ) ) : []
   }
 }

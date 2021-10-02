@@ -7,8 +7,13 @@ export const getPuzzlesStats = async () => {
   return data;
 }
 
-export const getPuzzles = async () => {
+export const getPuzzles = async (id=null) => {
   const collectionName = "puzzles";
-  const results = await get(collectionName);
-  return results[ Math.round(Math.random() * (results.length - 1))];
+  if(id) {
+    const results = await getById(collectionName, id);
+    return results;
+  } else {
+    const results = await get(collectionName);
+    return results[ Math.round(Math.random() * (results.length - 1))];
+  }
 }
