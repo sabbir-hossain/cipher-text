@@ -6,7 +6,7 @@ import {
 export const mainInputObject = async (options = {}) => {
   const innerWidth = Math.round( window.innerWidth * 0.89 );
 
-  return getPuzzlesData()
+  return getPuzzles()
     .then(result => {
       return {
         wordList: generateWordList(result),
@@ -63,8 +63,4 @@ function generatePuzzlesHints(result) {
       }
     ) )
   }
-}
-
-async function getPuzzlesData() {
-  return getPuzzles();
 }

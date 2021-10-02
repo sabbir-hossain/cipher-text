@@ -9,9 +9,9 @@ export default function canvasEvent(canvas, ctx) {
   const lineWidth = 30;
   let color = '#e09200';
   const colorList = [
-    "#FF5733", '#e09200', "#F7DC6F", 
-    "#AF7AC5", "#7FB3D5", "#5D6D7E",
-    "#76D7C4", "#73C6B6",
+    "#FF5733", '#e09200', "#fccb03", 
+    "#AF7AC5", "#3e99d4", "#5D6D7E",
+    "#32af97", "#2ca38c",
   ];
 
   //Mousedown

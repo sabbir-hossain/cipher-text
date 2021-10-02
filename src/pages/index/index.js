@@ -9,12 +9,19 @@ import footerObject from "../../layout/footer.js";
 import { mainInputObject } from "./dom-tree.js";
 import { drawCanvas } from "./canvas.js";
 import canvasEvent from "./canvas-event.js";
+import loaderObject from "./loader.js";
+import { removeAllChildElement } from "../../lib/dom.js";
 
 export default async function initFunction(options = {}) {
 
   document.body.appendChild( createHtmlElement( headerObject(page) ) );
+  
+  document.body.appendChild( createHtmlElement( loaderObject(page) ) );
 
   const { wordList, domObject } = await mainInputObject(options);
+
+  const element = document.getElementsByClassName("main-contents")[0];
+  removeAllChildElement(element);
   document.body.appendChild( createHtmlElement( domObject  ));
   document.body.appendChild( createHtmlElement( footerObject(page) ));
 

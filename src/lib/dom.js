@@ -6,6 +6,8 @@ export function removeAllChildElement(
   while (htmlElement.hasChildNodes()) {
     htmlElement.removeChild(htmlElement.lastChild);
   }
+
+  htmlElement.remove(); 
   return htmlElement;
 };
 
