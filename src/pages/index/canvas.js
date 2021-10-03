@@ -30,18 +30,13 @@ export function drawCanvas(ctx, inputList, fontSize=35, fontColor="red", positio
     const dtx = data.charConfig[charVal]?.["co-ordinates"];
     const len_x = dtx.length;
     const len_y = dtx?.[0].length;
-    console.log({charVal, dtx, len_x, len_y})
     totalChar += dtx?.[0].length
     totalChar++;
   }
 
-
-
   fontSize = Math.floor( maxWidth  / totalChar) - 2;
   canvasTextFontSize = fontSize;
   let init_y = fontSize;
-
-  console.log({totalChar, maxWidth,  fontSize})
 
   for (const input in inputList) {
     const charVal = input.split("_")[1];
