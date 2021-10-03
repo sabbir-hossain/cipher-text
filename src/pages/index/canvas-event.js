@@ -1,12 +1,13 @@
 
-
+import { canvasTextFontSize, defaultFontSize } from "./canvas.js";
 
 export default function canvasEvent(canvas, ctx) {
 
   //Variables
   let isDrawing = null;
   let points = [ ];
-  const lineWidth = 30;
+  const defaultLineWidth = 30;
+  const lineWidth = Math.floor( (canvasTextFontSize * defaultLineWidth) / defaultFontSize );
   let color = '#e09200';
   const colorList = [
     "#FF5733", '#e09200', "#fccb03", 

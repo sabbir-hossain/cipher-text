@@ -15,9 +15,6 @@ export default function J(size = 16) {
 
   const constX = ( x_unit * 0.5 );
   const constY = ( y_unit * 0.5 );
-
-  // console.log({ constX, constY, x_unit, y_unit })
-
   pointList["one"] = { 
     x1: 0, y1: y_unit * totalLineY,
     x2: 0, y2: y_unit * (totalLineY - 1) ,

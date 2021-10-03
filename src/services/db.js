@@ -22,7 +22,7 @@ export const getById = async(
 
   const ref = doc(db, `${collectionName}/${key}`);
   const snapshot = await getDoc(ref);
-  // console.log({ref, snapshot})
+
   return {
     id: snapshot.id,
     ...snapshot.data(),
@@ -35,7 +35,6 @@ export const save =  async (
 ) => {
   
   const docRef = await addDoc(collection(db, collectionName), data);
-  // console.log("Document written with ID: ", docRef.id);
   return docRef;
   // return docRef.id
 }
@@ -49,8 +48,6 @@ export const update = async(
   const dbRef = doc(db, collectionName, key);
 
   const result = await updateDoc(dbRef, data);
-  // console.log("update : ", {collectionName,  key, data, result})
-
   return result;
 }
 
@@ -61,8 +58,5 @@ export const upsert = async(
 ) => {
   const dbRef = doc(db, collectionName, key);
   const result = await setDoc(dbRef, data, { merge: true })
-
-  // console.log("upsert : ", {collectionName,  key, data, result})
-
   return result;
 }

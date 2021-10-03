@@ -105,14 +105,14 @@ export const allWordContentObject = (options = {}) => ({
 
 function generateQuestionList(option) {
   const { cipherText = [] } = option;
-// console.log({cipherText})
+
   let counter = 0;
   return  cipherText.reduce(  (total, char, index) => [...total, ...charData["charConfig"][char]["questionsLength"].map( (question) => ({
     name: ".cipher-input-div",
     childElement: [
       {
         name: ".cipher-word-text",
-        text: `Word ${counter + 1}`
+        text: `Word ${counter + 1} - ${char}`
       },
       {
         name: ".cipher-word-input",

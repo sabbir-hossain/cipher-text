@@ -11,6 +11,9 @@ const colorList = [
   "#76D7C4", "#73C6B6",
 ];
 
+export let canvasTextFontSize = 35;
+export const defaultFontSize = 35;
+
 export function drawCanvas(ctx, inputList, fontSize=35, fontColor="red", positionX=25, positionY=25 ) {
   const maxWidth = ctx.canvas.width;
   let max_x = positionX;
@@ -20,9 +23,8 @@ export function drawCanvas(ctx, inputList, fontSize=35, fontColor="red", positio
   const initWidth = 1216;
   // scale font-size
   fontSize = Math.floor( ( fontSize * maxWidth) / initWidth)
-
+  canvasTextFontSize = fontSize;
   let init_y = fontSize;
-  console.log({maxWidth, fontSize, inputList})
 
   for (const input in inputList) {
     const charVal = input.split("_")[1];
@@ -34,7 +36,6 @@ export function drawCanvas(ctx, inputList, fontSize=35, fontColor="red", positio
     positionY = init_y;
     init_x = max_x;
 
-    console.log({charVal})
     // const selectedColor =randomValue(colorList);
 
     if( (positionX + (len_y * fontSize)) > maxWidth ) {
@@ -69,7 +70,6 @@ export function drawCanvas(ctx, inputList, fontSize=35, fontColor="red", positio
 
           const firstPart = val[0];
           const secondPart = val[1];
-          console.log({val: dtx[a][b], firstPart, secondPart, v: inputList[input][firstPart][secondPart], input, v2: inputList[input]})
           process_char(ctx, inputList[input][firstPart][secondPart], "#000", fontSize - 10, positionX + 7, positionY + fontSize-5)
         } else {
           process_char(ctx, randomValue(data.allowedChatList), "#000", fontSize - 10, positionX + 7, positionY + fontSize-5)

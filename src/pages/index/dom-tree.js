@@ -36,7 +36,11 @@ export const allWordContentObject = (result, innerWidth) => ({
 })
 
 function generateWordList( result ) {
-  return result.wordData ? Object.keys(result.wordData).sort().reduce( (total, key) => {
+  return result.wordData ? Object.keys(result.wordData).sort((a,b) => {
+    const [, , c1] = a.split("-");
+    const [, , c2] = b.split("-");
+    return c1 - c2;
+  }).reduce( (total, key) => {
     const dt = key.split("-");
     const newKey = dt.slice(0,2).join("_");
     total[newKey] = total[newKey] || [];

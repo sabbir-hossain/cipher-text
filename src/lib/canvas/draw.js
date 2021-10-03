@@ -78,7 +78,6 @@ export function displayData(ctx, charList, maxWidth, fontSize=25, fontColor="bla
   const maxChar = Math.floor( maxWidth / fontSize );
   for (let i=0; i<len; i++ ) {
     const charVal = upperCharList[i];
-    console.log({charVal, })
     // if(charVal === " ") {
     //   // const graphics = new Graphics(ctx, "#fff", positionX, positionY);
     //   // const pointList = data['SPACE'](fontSize);
@@ -101,7 +100,6 @@ export function displayData(ctx, charList, maxWidth, fontSize=25, fontColor="bla
 
 function process_char(ctx, charVal, fontColor, fontSize, positionX, positionY) {
   const graphics = new Graphics(ctx, fontColor, positionX, positionY);
-  console.log({charVal, fontSize, data})
   const pointList = data[charVal](fontSize);
   draw_char(graphics, pointList);
 }

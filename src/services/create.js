@@ -14,12 +14,7 @@ const updatePuzzleStats = async(stats) => {
 export const savePuzzles = async (data) => {
   const collectionName = "puzzles";
   // const stats = await getPuzzlesStats();
-  // console.log("savePuzzles : ", {stats, data});
-
   const result = await save(collectionName, {...data, 'status': "not-complete"});
-
-  // updatePuzzleStats(stats);
-
   return result;
 }
 
