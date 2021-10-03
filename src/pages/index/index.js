@@ -17,8 +17,6 @@ export default async function initFunction(options = {}) {
   const urlParams = new URLSearchParams(window.location.search);
   options._id = urlParams.get('id');
 
-  console.log({options})
-
   try {
     document.body.appendChild( createHtmlElement( headerObject(page) ) );
   
@@ -35,7 +33,7 @@ export default async function initFunction(options = {}) {
   
     const canvas = document.getElementById(canvasId);
     const ctx = canvas.getContext("2d");
-    
+    console.log({wordList})
     drawCanvas(ctx, wordList);
   
     canvasEvent(canvas, ctx);

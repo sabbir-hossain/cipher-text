@@ -34,7 +34,8 @@ export function drawCanvas(ctx, inputList, fontSize=35, fontColor="red", positio
     positionY = init_y;
     init_x = max_x;
 
-    const selectedColor =randomValue(colorList);
+    console.log({charVal})
+    // const selectedColor =randomValue(colorList);
 
     if( (positionX + (len_y * fontSize)) > maxWidth ) {
       positionX = fontSize;
@@ -62,12 +63,13 @@ export function drawCanvas(ctx, inputList, fontSize=35, fontColor="red", positio
           fontColor = "red";
         }
 
+
         if( dtx[a][b] !== 0 ) {
           const val = dtx[a][b].split("|");
 
           const firstPart = val[0];
           const secondPart = val[1];
-
+          console.log({val: dtx[a][b], firstPart, secondPart, v: inputList[input][firstPart][secondPart], input, v2: inputList[input]})
           process_char(ctx, inputList[input][firstPart][secondPart], "#000", fontSize - 10, positionX + 7, positionY + fontSize-5)
         } else {
           process_char(ctx, randomValue(data.allowedChatList), "#000", fontSize - 10, positionX + 7, positionY + fontSize-5)

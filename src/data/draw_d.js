@@ -1,4 +1,4 @@
-import { charConfig as config } from "./config.js";
+import { charConfig as config } from "./config_char.js";
 
 export default function D(size = 16) {
   const pointList = {};
