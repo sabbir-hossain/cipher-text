@@ -1,4 +1,4 @@
-import { getById, get } from "./db.js";
+// import { getById, get } from "./db.js";
 
 export const getPuzzlesStats = async () => {
   const collectionName = "stats";
@@ -7,6 +7,15 @@ export const getPuzzlesStats = async () => {
   return data;
 }
 
+
+export const getPuzzles = async () => {
+  const response = await fetch('./local-data.json')  
+  const results = await response.json();
+  return results[ Math.round(Math.random() * (results.length - 1))]; 
+}
+
+
+/*
 export const getPuzzles = async (id=null) => {
   const collectionName = "puzzles";
   if(id) {
@@ -17,3 +26,4 @@ export const getPuzzles = async (id=null) => {
     return results[ Math.round(Math.random() * (results.length - 1))];
   }
 }
+*/

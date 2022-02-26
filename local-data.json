@@ -1,0 +1,145 @@
+[
+    {
+      "id": "EaFCawdSMI8pAX4Tjuvo",
+      "wordData": {
+        "2-E-8": {
+          "text": ["S", "H", "I", "V", "A"],
+          "hint": "is one of the principal deities of Hinduism. He is also known as Mahadeva, Rudra, Ashutosh etc."
+        },
+        "4-J-15": {
+          "hint": "is a legendary hero in Persian mythology, the son of Zal and Rudaba",
+          "text": ["R", "U", "S", "T", "A", "M"]
+        },
+        "3-Y-11": {
+          "text": ["T", "Y", "R"],
+          "hint": "is the Norse god of war, a brave warrior and member of the Aesir tribe"
+        },
+        "0-F-2": {
+          "text": ["I", "N", "A", "R", "I"],
+          "hint": "is Japanese kami of prosperity, rice and craftsmanship"
+        },
+        "5-A-16": {
+          "text": ["P", "E", "R", "S", "E", "U", "S"],
+          "hint": "The son of Zeus and Danaë. Most famous was his slaying of the Gorgon Medusa"
+        },
+        "1-R-4": {
+          "hint": "is an Egyptian god of desert, thunderstorms and earthquakes",
+          "text": ["S", "E", "T", "H"]
+        },
+        "4-J-14": {
+          "hint": "is an Sumerian god associated with wind, air, earth and storms.",
+          "text": ["E", "N", "L", "I", "L"]
+        },
+        "5-A-17": {
+          "hint": "is the Greek goddess of the hunt, the wilderness, wild animals, the Moon, and chastity.",
+          "text": ["A", "R", "T", "E", "M", "I", "S"]
+        },
+        "1-R-5": {
+          "text": ["I", "S", "H", "T", "E", "R"],
+          "hint": "is an ancient Mesopotamian goddess associated with love, beauty, war, justice and political power"
+        },
+        "3-Y-10": {
+          "hint": "is the Sumerian god of water, knowledge, mischief, crafts and creation",
+          "text": ["E", "N", "K", "I"]
+        },
+        "1-R-6": {
+          "text": ["O", "S", "I", "R", "I", "S"],
+          "hint": "is an Egyptian god who is the ruler of underworld"
+        },
+        "5-A-18": {
+          "hint": "is an Egyptian sun god and considered as the god who created everything",
+          "text": ["R", "A"]
+        },
+        "4-J-13": {
+          "text": ["T", "A", "R", "A"],
+          "hint": "is a female Bodhisattva. She is considered a great protector that guards people against the eight major dangers in life "
+        },
+        "2-E-9": {
+          "hint": "is an Egyptian God of the dead and is responsible for making sure the journey to the underworld went smoothly for man",
+          "text": ["A", "N", "U", "B", "I", "S"]
+        },
+        "3-Y-12": {
+          "hint": "is a Norse goddess of wheat, fertility and wife of the warrior god Thor",
+          "text": ["S", "I", "F"]
+        },
+        "0-F-1": {
+          "text": ["I", "S", "I", "S"],
+          "hint": "is an Egyptian goddess and wife of Osiris and mother of Horus"
+        },
+        "2-E-7": {
+          "hint": "is the sky and thunder god in Greek mythology, who rules as king of the gods",
+          "text": ["Z", "E", "U", "S"]
+        },
+        "0-F-3": {
+          "text": ["A", "N", "U"],
+          "hint": "is the divine personification of the sky, supreme god and ancestor of all the deities in Sumerian Mythology"
+        }
+      },
+      "cipherHint": "Norse goddes of love, war, battle and death. She is also sister of Freyr",
+      "cipher": ["F", "R", "E", "Y", "J", "A"],
+      "status": "not-complete"
+    },
+    {
+      "status": "not-complete",
+      "id": "zv5QyymUTfxbnTbMT2WJ",
+      "cipher": ["D", "H", "A", "K", "A"],
+      "wordData": {
+        "4-A-12": {
+          "text": ["N", "A", "I", "R", "O", "B", "I"],
+          "hint": "is the capital and the largest city of Kenya. The name comes from the Maasai phrase Enkare Nairobi, which translates to \"cool water\"."
+        },
+        "2-A-8": {
+          "hint": "United Kingdom, made up of England, Scotland, Wales and Northern Ireland, is an island nation in northwestern Europe. ",
+          "text": ["U", "K"]
+        },
+        "1-H-5": {
+          "hint": "Pidu District formerly known as Pi County or Pixian[a] is one of 11 urban districts of the prefecture-level city of Chengdu, the capital of Sichuan Province, Southwest China",
+          "text": ["P", "I"]
+        },
+        "4-A-14": {
+          "hint": "Ny is a village of Wallonia in the municipality and district of Hotton, located in the province of Luxembourg, Belgium.",
+          "text": ["N", "Y"]
+        },
+        "4-A-13": {
+          "hint": "the capital of the province of Ontario, is a major Canadian city along Lake Ontario’s northwestern shore.",
+          "text": ["T", "O", "R", "O", "N", "T", "O"]
+        },
+        "3-K-10": {
+          "hint": "Capital of Azerbaijan and is called \"City of Winds\".",
+          "text": ["B", "A", "K", "U"]
+        },
+        "2-A-7": {
+          "text": ["B", "A", "G", "H", "D", "A", "D"],
+          "hint": "capital of Iraq and the second largest city in the Arab world after Cairo."
+        },
+        "3-K-11": {
+          "text": ["F", "E", "Z"],
+          "hint": "northeastern Moroccan city often referred to as the country’s cultural capital."
+        },
+        "1-H-4": {
+          "text": ["B", "A", "N", "G", "K", "O", "K"],
+          "hint": "Capital of Thailand and is called \"Venice of the East\"."
+        },
+        "0-D-1": {
+          "text": ["F", "A", "I", "Z", "A", "B", "A", "D"],
+          "hint": "City of Pakistan/India/Afghanistan "
+        },
+        "1-H-3": {
+          "text": ["J", "A", "K", "A", "R", "T", "A"],
+          "hint": "Indonesia's massive capital, sits on the northwest coast of the island of Java."
+        },
+        "0-D-2": {
+          "text": ["D", "A", "M", "A", "S", "C", "U", "S"],
+          "hint": "Capital of Syria. The oldest city in the world "
+        },
+        "2-A-6": {
+          "hint": "China’s sprawling capital, has history stretching back 3 millennia.",
+          "text": ["B", "E", "I", "J", "I", "N", "G"]
+        },
+        "3-K-9": {
+          "hint": "capital of India's West Bengal state. it was India's capital under the British Raj from 1773–1911.",
+          "text": ["K", "O", "L", "K", "A", "T", "A"]
+        }
+      }
+    }
+  ]
